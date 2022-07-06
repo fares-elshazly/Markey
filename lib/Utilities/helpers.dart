@@ -3,8 +3,6 @@ import 'package:flutter/foundation.dart';
 import 'package:logging/logging.dart';
 
 abstract class Helpers {
-  static const _placeHolder = '-';
-
   static void setupLogger() {
     Logger.root.level = Level.ALL;
     Logger.root.onRecord.listen((record) {
