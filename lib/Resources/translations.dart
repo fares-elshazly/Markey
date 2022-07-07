@@ -37,6 +37,11 @@ class MRKTranslations extends Translations {
         MRKStrings.resetPasswordConfirmNewPassword: 'Confirm New Password',
         MRKStrings.resetPasswordSubmit: 'Reset',
 
+        MRKStrings.viewerHome: 'Home',
+        MRKStrings.viewerChat: 'Chat',
+        MRKStrings.viewerNotifications: 'Notifications',
+        MRKStrings.viewerProfile: 'Profile',
+
         MRKStrings.successTitle: 'Success!',
         MRKStrings.errorTitle: 'Something went wrong!',
         MRKStrings.emptyError: 'This field is required',
