@@ -4,6 +4,8 @@ import 'package:get_storage/get_storage.dart';
 
 import 'Screens/Shared/splash.dart';
 
+import 'Screens/Authentication/login.dart';
+
 import 'Resources/translations.dart';
 
 import 'Factories/colors_factory.dart';
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: _getTheme(),
       translations: MRKTranslations(),
-      locale: Get.deviceLocale,
+      locale: const Locale('en'),
       fallbackLocale: SupportedLocales.enLocale,
       initialBinding: ControllersBinder(),
       initialRoute: SplashScreen.routeName,
@@ -52,6 +54,9 @@ class MyApp extends StatelessWidget {
     return [
       // * Shared Screens
       GetPage(name: SplashScreen.routeName, page: () => const SplashScreen()),
+
+      // * Authentication Screens
+      GetPage(name: LoginScreen.routeName, page: () => LoginScreen()),
     ];
   }
 }
