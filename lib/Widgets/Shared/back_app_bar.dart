@@ -11,8 +11,8 @@ class BackAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   const BackAppBar({
     required this.title,
-    this.backgroundColor,
-    this.foregroundColor = ColorsFactory.secondary,
+    this.backgroundColor = Colors.transparent,
+    this.foregroundColor = ColorsFactory.text,
     Key? key,
   }) : super(key: key);
 
@@ -35,7 +35,7 @@ class BackAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   Widget _buildBack() {
     return IconButton(
-      icon: Icon(Icons.arrow_back, color: foregroundColor),
+      icon: Icon(Icons.arrow_back_ios, color: foregroundColor),
       onPressed: () => Get.back(),
     );
   }
@@ -43,6 +43,7 @@ class BackAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget _buildTitle() {
     return TextFactory.buildNormalText1(
       title,
+      weight: FontWeights.medium,
       color: foregroundColor,
     );
   }
