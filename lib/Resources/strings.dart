@@ -7,6 +7,14 @@ abstract class MRKStrings {
   static const loginDontHaveAccount = 'login.already.member';
   static const loginRegister = 'login.register';
 
+  // * Register Screen
+  static const registerTitle = 'register.title';
+  static const registerUsername = 'register.username';
+  static const registerName = 'register.name';
+  static const registerPassword = 'register.password';
+  static const registerConfirmPassword = 'register.confirm.password';
+  static const registerSubmit = 'register.submit';
+
   // * Validation Messages
   static const successTitle = 'success.title';
   static const errorTitle = 'error.title';
