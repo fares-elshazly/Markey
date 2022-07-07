@@ -15,6 +15,25 @@ abstract class MRKStrings {
   static const registerConfirmPassword = 'register.confirm.password';
   static const registerSubmit = 'register.submit';
 
+  // * Forgot Password Screen
+  static const forgotPasswordTitle = 'forgot.password.title';
+  static const forgotPasswordSubtitle = 'forgot.password.subtitle';
+  static const forgotPasswordUsername = 'forgot.password.username';
+  static const forgotPasswordSubmit = 'forgot.password.submit';
+
+  // * Verify Code Screen
+  static const verifyCodeTitle = 'verify.code.title';
+  static const verifyCodeSubtitle = 'verify.code.subtitle';
+  static const verifyCodeCode = 'verify.code.code';
+  static const verifyCodeResend = 'verify.code.resend';
+  static const verifyCodeSubmit = 'verify.code.submit';
+
+  // * Reset Password Screen
+  static const resetPasswordTitle = 'reset.password.title';
+  static const resetPasswordNewPassword = 'reset.password.new.password';
+  static const resetPasswordConfirmNewPassword = 'reset.password.confirm.new.password';
+  static const resetPasswordSubmit = 'reset.password.submit';
+
   // * Validation Messages
   static const successTitle = 'success.title';
   static const errorTitle = 'error.title';
