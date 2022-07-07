@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '/Screens/Authentication/forgot_password.dart';
 import '/Screens/Authentication/register.dart';
 import '/Widgets/Shared/custom_text_field.dart';
 import '/Widgets/Shared/submit_button.dart';
@@ -150,7 +151,9 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  void _forgotPassword() {}
+  void _forgotPassword() {
+    Get.toNamed(ForgotPasswordScreen.routeName);
+  }
 
   void _submit() {}
 
