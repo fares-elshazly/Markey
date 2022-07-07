@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
@@ -108,8 +109,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
   }
 
   Widget _getObscureIcon() {
-    if (_isObscured) return const Icon(Icons.visibility_off);
-    return const Icon(Icons.visibility);
+    if (_isObscured) return const Icon(CupertinoIcons.eye_slash);
+    return const Icon(CupertinoIcons.eye);
   }
 
   Widget _buildLabel() {
