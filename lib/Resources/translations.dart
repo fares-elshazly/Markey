@@ -21,6 +21,22 @@ class MRKTranslations extends Translations {
         MRKStrings.registerConfirmPassword: 'Confirm Password',
         MRKStrings.registerSubmit: 'Sign Up',
 
+        MRKStrings.forgotPasswordTitle: 'Forgot Password',
+        MRKStrings.forgotPasswordSubtitle: 'Please enter the username that you\'ve used to sign up',
+        MRKStrings.forgotPasswordUsername: 'Username',
+        MRKStrings.forgotPasswordSubmit: 'Send Code',
+
+        MRKStrings.verifyCodeTitle: 'Verify Code',
+        MRKStrings.verifyCodeSubtitle: 'Please enter the code you received to verify that it\'s you',
+        MRKStrings.verifyCodeCode: 'Code',
+        MRKStrings.verifyCodeResend: 'Resend',
+        MRKStrings.verifyCodeSubmit: 'Verify',
+
+        MRKStrings.resetPasswordTitle: 'Reset Password',
+        MRKStrings.resetPasswordNewPassword: 'New Password',
+        MRKStrings.resetPasswordConfirmNewPassword: 'Confirm New Password',
+        MRKStrings.resetPasswordSubmit: 'Reset',
+
         MRKStrings.successTitle: 'Success!',
         MRKStrings.errorTitle: 'Something went wrong!',
         MRKStrings.emptyError: 'This field is required',
