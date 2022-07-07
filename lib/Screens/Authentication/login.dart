@@ -7,6 +7,7 @@ import '/Widgets/Authentication/question_navigation.dart';
 import '/Resources/strings.dart';
 import '/Resources/images.dart';
 import '/Factories/text_factory.dart';
+import '/Utilities/helpers.dart';
 import '/Utilities/validator.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -29,12 +30,19 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: _buildBody(context),
+      bottomNavigationBar: _buildBottomBar(),
+    );
+  }
+
+  Widget _buildBody(BuildContext context) {
+    return GestureDetector(
+      onTap: Helpers.dismissKeyboard,
+      child: Container(
         width: MediaQuery.of(context).size.width,
         padding: EdgeInsets.symmetric(horizontal: _bodyHorizontalMargin),
         child: _buildContent(),
       ),
-      bottomNavigationBar: _buildBottomBar(),
     );
   }
 
