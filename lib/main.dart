@@ -6,6 +6,9 @@ import 'Screens/Shared/splash.dart';
 
 import 'Screens/Authentication/login.dart';
 import 'Screens/Authentication/register.dart';
+import 'Screens/Authentication/forgot_password.dart';
+import 'Screens/Authentication/verify_code.dart';
+import 'Screens/Authentication/reset_password.dart';
 
 import 'Resources/translations.dart';
 
@@ -59,6 +62,9 @@ class MyApp extends StatelessWidget {
       // * Authentication Screens
       GetPage(name: LoginScreen.routeName, page: () => LoginScreen()),
       GetPage(name: RegisterScreen.routeName, page: () => RegisterScreen()),
+      GetPage(name: ForgotPasswordScreen.routeName, page: () => ForgotPasswordScreen()),
+      GetPage(name: VerifyCodeScreen.routeName, page: () => VerifyCodeScreen()),
+      GetPage(name: ResetPasswordScreen.routeName, page: () => ResetPasswordScreen()),
     ];
   }
 }
