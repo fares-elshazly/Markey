@@ -34,6 +34,12 @@ abstract class MRKStrings {
   static const resetPasswordConfirmNewPassword = 'reset.password.confirm.new.password';
   static const resetPasswordSubmit = 'reset.password.submit';
 
+  // * Viewer Screen
+  static const viewerHome = 'viewer.home';
+  static const viewerChat = 'viewer.chat';
+  static const viewerNotifications = 'viewer.notifications';
+  static const viewerProfile = 'viewer.profile';
+
   // * Validation Messages
   static const successTitle = 'success.title';
   static const errorTitle = 'error.title';
