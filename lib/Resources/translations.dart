@@ -7,6 +7,13 @@ class MRKTranslations extends Translations {
   Map<String, Map<String, String>> get keys {
     return {
       'en': {
+        MRKStrings.loginUsername: 'Username',
+        MRKStrings.loginPassword: 'Password',
+        MRKStrings.loginForgotPassword: 'Forgot password?',
+        MRKStrings.loginSubmit: 'Sign In',
+        MRKStrings.loginDontHaveAccount: 'Don\'t have an account?',
+        MRKStrings.loginRegister: 'Sign Up',
+
         MRKStrings.successTitle: 'Success!',
         MRKStrings.errorTitle: 'Something went wrong!',
         MRKStrings.emptyError: 'This field is required',
