@@ -14,6 +14,13 @@ class MRKTranslations extends Translations {
         MRKStrings.loginDontHaveAccount: 'Don\'t have an account?',
         MRKStrings.loginRegister: 'Sign Up',
 
+        MRKStrings.registerTitle: 'Sign Up',
+        MRKStrings.registerUsername: 'Username',
+        MRKStrings.registerName: 'Full Name',
+        MRKStrings.registerPassword: 'Password',
+        MRKStrings.registerConfirmPassword: 'Confirm Password',
+        MRKStrings.registerSubmit: 'Sign Up',
+
         MRKStrings.successTitle: 'Success!',
         MRKStrings.errorTitle: 'Something went wrong!',
         MRKStrings.emptyError: 'This field is required',
