@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '/Screens/Authentication/register.dart';
 import '/Widgets/Shared/custom_text_field.dart';
 import '/Widgets/Shared/submit_button.dart';
 import '/Widgets/Authentication/social_buttons.dart';
@@ -97,7 +99,7 @@ class LoginScreen extends StatelessWidget {
     return CustomTextField(
       hint: MRKStrings.loginUsername,
       controller: _usernameController,
-      validator: Validator.isEmail,
+      validator: Validator.isNotEmpty,
     );
   }
 
@@ -152,5 +154,7 @@ class LoginScreen extends StatelessWidget {
 
   void _submit() {}
 
-  void _register() {}
+  void _register() {
+    Get.toNamed(RegisterScreen.routeName);
+  }
 }
