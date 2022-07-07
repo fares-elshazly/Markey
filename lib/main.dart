@@ -5,6 +5,7 @@ import 'package:get_storage/get_storage.dart';
 import 'Screens/Shared/splash.dart';
 
 import 'Screens/Authentication/login.dart';
+import 'Screens/Authentication/register.dart';
 
 import 'Resources/translations.dart';
 
@@ -57,6 +58,7 @@ class MyApp extends StatelessWidget {
 
       // * Authentication Screens
       GetPage(name: LoginScreen.routeName, page: () => LoginScreen()),
+      GetPage(name: RegisterScreen.routeName, page: () => RegisterScreen()),
     ];
   }
 }
