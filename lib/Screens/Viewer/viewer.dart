@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:markey/Screens/Viewer/home.dart';
 
+import '/Screens/Viewer/home.dart';
+import '/Screens/Viewer/chat.dart';
 import '/Resources/strings.dart';
 import '/Factories/text_factory.dart';
 import '/Factories/colors_factory.dart';
@@ -14,7 +15,7 @@ class ViewerScreen extends StatelessWidget {
 
   static const List<Widget> _tabs = [
     HomeScreen(),
-    SizedBox(),
+    ChatScreen(),
     SizedBox(),
     SizedBox(),
   ];
