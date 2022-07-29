@@ -22,6 +22,7 @@ class ShopCard extends StatelessWidget {
   final _borderRadius = 8.0;
   final _padding = 10.0;
   final _internalMargin = 10.0;
+  final _textMargin = 4.0;
 
   final _imageHeight = 200.0;
   final _maxLines = 2;
@@ -111,8 +112,10 @@ class ShopCard extends StatelessWidget {
     return Row(
       children: [
         const Icon(Icons.star, color: ColorsFactory.rate),
+        SizedBox(width: _textMargin),
         TextFactory.buildNormalText3(
-            (Random().nextDouble() * 5).toStringAsFixed(1)),
+          (Random().nextDouble() * 5).toStringAsFixed(1),
+        ),
       ],
     );
   }
