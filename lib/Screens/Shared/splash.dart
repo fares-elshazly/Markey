@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '/Screens/Authentication/login.dart';
 import '/Resources/images.dart';
+import '/Factories/colors_factory.dart';
 
 class SplashScreen extends StatefulWidget {
   static const routeName = '/Splash';
@@ -25,6 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorsFactory.secondaryBackground,
       body: Container(
         width: MediaQuery.of(context).size.width,
         padding: EdgeInsets.symmetric(horizontal: _bodyHorizontalMargin),

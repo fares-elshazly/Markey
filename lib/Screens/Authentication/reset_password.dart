@@ -4,6 +4,7 @@ import '/Widgets/Shared/back_app_bar.dart';
 import '/Widgets/Shared/custom_text_field.dart';
 import '/Widgets/Shared/submit_button.dart';
 import '/Resources/strings.dart';
+import '/Factories/colors_factory.dart';
 import '/Utilities/helpers.dart';
 import '/Utilities/validator.dart';
 
@@ -23,6 +24,7 @@ class ResetPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorsFactory.secondaryBackground,
       appBar: _buildAppBar(),
       body: _buildBody(context),
     );

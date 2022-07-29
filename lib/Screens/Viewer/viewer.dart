@@ -50,7 +50,7 @@ class ViewerScreen extends StatelessWidget {
 
   BoxDecoration _buildTabBarDecoration() {
     return BoxDecoration(
-      color: ColorsFactory.field,
+      color: ColorsFactory.secondary,
       borderRadius: BorderRadius.only(
         topLeft: Radius.circular(_borderRadius),
         topRight: Radius.circular(_borderRadius),

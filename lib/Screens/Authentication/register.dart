@@ -6,6 +6,7 @@ import '/Widgets/Shared/submit_button.dart';
 import '/Widgets/Authentication/social_buttons.dart';
 import '/Resources/strings.dart';
 import '/Resources/images.dart';
+import '/Factories/colors_factory.dart';
 import '/Utilities/helpers.dart';
 import '/Utilities/validator.dart';
 
@@ -30,6 +31,7 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorsFactory.secondaryBackground,
       appBar: _buildAppBar(),
       body: _buildBody(context),
     );

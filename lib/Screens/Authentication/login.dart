@@ -11,6 +11,7 @@ import '/Widgets/Authentication/question_navigation.dart';
 import '/Resources/strings.dart';
 import '/Resources/images.dart';
 import '/Factories/text_factory.dart';
+import '/Factories/colors_factory.dart';
 import '/Utilities/helpers.dart';
 import '/Utilities/validator.dart';
 
@@ -34,6 +35,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorsFactory.secondaryBackground,
       body: _buildBody(context),
       bottomNavigationBar: _buildBottomBar(),
     );

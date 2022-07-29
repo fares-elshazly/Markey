@@ -39,7 +39,7 @@ class ShopCard extends StatelessWidget {
 
   BoxDecoration _buildDecoration() {
     return BoxDecoration(
-      color: ColorsFactory.field,
+      color: ColorsFactory.secondary,
       borderRadius: BorderRadius.circular(_borderRadius),
     );
   }

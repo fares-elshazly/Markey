@@ -27,6 +27,7 @@ class VerifyCodeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorsFactory.secondaryBackground,
       appBar: _buildAppBar(),
       body: _buildBody(context),
     );
