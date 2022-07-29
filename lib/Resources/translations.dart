@@ -51,6 +51,12 @@ class MRKTranslations extends Translations {
 
         MRKStrings.notificationsTitle: 'Notifications',
 
+        MRKStrings.profileEdit: 'Edit Profile',
+        MRKStrings.profileLanguage: 'Language',
+        MRKStrings.profilePrivacy: 'Privacy Policy',
+        MRKStrings.profileShare: 'Tell A Friend',
+        MRKStrings.profileLogout: 'Logout',
+
         MRKStrings.tipsTitle: 'Tips',
 
         MRKStrings.sharedSearch: 'Search ..',
