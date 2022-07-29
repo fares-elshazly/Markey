@@ -42,6 +42,11 @@ class MRKTranslations extends Translations {
         MRKStrings.viewerNotifications: 'Notifications',
         MRKStrings.viewerProfile: 'Profile',
 
+        MRKStrings.homeGreeting: 'Hello 👋🏻',
+        MRKStrings.homeTips: 'Tips',
+        MRKStrings.homeCommunity: 'Community',
+        MRKStrings.homeMall: 'Mall',
+
         MRKStrings.successTitle: 'Success!',
         MRKStrings.errorTitle: 'Something went wrong!',
         MRKStrings.emptyError: 'This field is required',
