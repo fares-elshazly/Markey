@@ -13,6 +13,7 @@ import 'Screens/Authentication/reset_password.dart';
 
 import 'Screens/Viewer/viewer.dart';
 import 'Screens/Viewer/home.dart';
+import 'Screens/Viewer/chat.dart';
 
 import 'Screens/Tips/tips.dart';
 
@@ -81,6 +82,7 @@ class MyApp extends StatelessWidget {
       // * Viewer Screens
       GetPage(name: ViewerScreen.routeName, page: () => const ViewerScreen()),
       GetPage(name: HomeScreen.routeName, page: () => const HomeScreen()),
+      GetPage(name: ChatScreen.routeName, page: () => const ChatScreen()),
 
       // * Tips Screens
       GetPage(name: TipsScreen.routeName, page: () => const TipsScreen()),
