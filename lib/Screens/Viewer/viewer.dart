@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:markey/Screens/Viewer/home.dart';
 
 import '/Resources/strings.dart';
 import '/Factories/text_factory.dart';
@@ -12,7 +13,7 @@ class ViewerScreen extends StatelessWidget {
   const ViewerScreen({Key? key}) : super(key: key);
 
   static const List<Widget> _tabs = [
-    SizedBox(),
+    HomeScreen(),
     SizedBox(),
     SizedBox(),
     SizedBox(),
@@ -41,7 +42,7 @@ class ViewerScreen extends StatelessWidget {
 
   Widget _buildTabBar() {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: _padding),
+      padding: EdgeInsets.only(bottom: _padding),
       decoration: _buildTabBarDecoration(),
       child: SafeArea(child: _buildTabBarContent()),
     );
