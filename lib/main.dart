@@ -11,6 +11,7 @@ import 'Screens/Authentication/verify_code.dart';
 import 'Screens/Authentication/reset_password.dart';
 
 import 'Screens/Viewer/viewer.dart';
+import 'Screens/Viewer/home.dart';
 
 import 'Resources/translations.dart';
 
@@ -70,6 +71,7 @@ class MyApp extends StatelessWidget {
 
       // * Viewer Screen
       GetPage(name: ViewerScreen.routeName, page: () => const ViewerScreen()),
+      GetPage(name: HomeScreen.routeName, page: () => const HomeScreen()),
     ];
   }
 }
