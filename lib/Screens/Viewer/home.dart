@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '/Screens/Tips/tips.dart';
 import '/Widgets/Home/greeting.dart';
 import '/Widgets/Home/service_card.dart';
 import '/Widgets/Home/shop_card.dart';
@@ -109,7 +111,9 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  void _tips() {}
+  void _tips() {
+    Get.toNamed(TipsScreen.routeName);
+  }
 
   void _community() {}
 }
