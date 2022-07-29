@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import '/Screens/Viewer/home.dart';
 import '/Screens/Viewer/chat.dart';
 import '/Screens/Viewer/notifications.dart';
+import '/Screens/Viewer/profile.dart';
 import '/Resources/strings.dart';
 import '/Factories/text_factory.dart';
 import '/Factories/colors_factory.dart';
@@ -18,7 +19,7 @@ class ViewerScreen extends StatelessWidget {
     HomeScreen(),
     ChatScreen(),
     NotificationsScreen(),
-    SizedBox(),
+    ProfileScreen(),
   ];
 
   final _padding = 10.0;
