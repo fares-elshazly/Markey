@@ -14,6 +14,8 @@ import 'Screens/Authentication/reset_password.dart';
 import 'Screens/Viewer/viewer.dart';
 import 'Screens/Viewer/home.dart';
 
+import 'Screens/Tips/tips.dart';
+
 import 'Resources/translations.dart';
 
 import 'Factories/colors_factory.dart';
@@ -72,17 +74,16 @@ class MyApp extends StatelessWidget {
       // * Authentication Screens
       GetPage(name: LoginScreen.routeName, page: () => LoginScreen()),
       GetPage(name: RegisterScreen.routeName, page: () => RegisterScreen()),
-      GetPage(
-          name: ForgotPasswordScreen.routeName,
-          page: () => ForgotPasswordScreen()),
+      GetPage(name: ForgotPasswordScreen.routeName, page: () => ForgotPasswordScreen()),
       GetPage(name: VerifyCodeScreen.routeName, page: () => VerifyCodeScreen()),
-      GetPage(
-          name: ResetPasswordScreen.routeName,
-          page: () => ResetPasswordScreen()),
+      GetPage(name: ResetPasswordScreen.routeName, page: () => ResetPasswordScreen()),
 
-      // * Viewer Screen
+      // * Viewer Screens
       GetPage(name: ViewerScreen.routeName, page: () => const ViewerScreen()),
       GetPage(name: HomeScreen.routeName, page: () => const HomeScreen()),
+
+      // * Tips Screens
+      GetPage(name: TipsScreen.routeName, page: () => const TipsScreen()),
     ];
   }
 }
