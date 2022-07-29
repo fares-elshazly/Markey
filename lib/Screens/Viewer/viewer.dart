@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import '/Screens/Viewer/home.dart';
 import '/Screens/Viewer/chat.dart';
+import '/Screens/Viewer/notifications.dart';
 import '/Resources/strings.dart';
 import '/Factories/text_factory.dart';
 import '/Factories/colors_factory.dart';
@@ -16,7 +17,7 @@ class ViewerScreen extends StatelessWidget {
   static const List<Widget> _tabs = [
     HomeScreen(),
     ChatScreen(),
-    SizedBox(),
+    NotificationsScreen(),
     SizedBox(),
   ];
 
