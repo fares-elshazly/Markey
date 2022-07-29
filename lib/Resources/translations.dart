@@ -47,7 +47,11 @@ class MRKTranslations extends Translations {
         MRKStrings.homeCommunity: 'Community',
         MRKStrings.homeMall: 'Mall',
 
+        MRKStrings.chatTitle: 'Chat',
+
         MRKStrings.tipsTitle: 'Tips',
+
+        MRKStrings.sharedSearch: 'Search ..',
 
         MRKStrings.successTitle: 'Success!',
         MRKStrings.errorTitle: 'Something went wrong!',
