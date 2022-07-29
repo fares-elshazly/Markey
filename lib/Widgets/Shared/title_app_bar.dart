@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '/Factories/text_factory.dart';
+import '/Factories/colors_factory.dart';
 
 class TitleAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -18,7 +19,7 @@ class TitleAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       systemOverlayStyle: SystemUiOverlayStyle.dark,
-      backgroundColor: Colors.transparent,
+      backgroundColor: ColorsFactory.background,
       elevation: _elevation,
       centerTitle: false,
       automaticallyImplyLeading: false,
