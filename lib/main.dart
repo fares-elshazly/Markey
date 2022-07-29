@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -27,6 +28,12 @@ void main() async {
   await GetStorage.init();
   Helpers.setupLogger();
   runApp(const MyApp());
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle.dark.copyWith(
+      statusBarIconBrightness: Brightness.light,
+      statusBarBrightness: Brightness.light,
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -65,9 +72,13 @@ class MyApp extends StatelessWidget {
       // * Authentication Screens
       GetPage(name: LoginScreen.routeName, page: () => LoginScreen()),
       GetPage(name: RegisterScreen.routeName, page: () => RegisterScreen()),
-      GetPage(name: ForgotPasswordScreen.routeName, page: () => ForgotPasswordScreen()),
+      GetPage(
+          name: ForgotPasswordScreen.routeName,
+          page: () => ForgotPasswordScreen()),
       GetPage(name: VerifyCodeScreen.routeName, page: () => VerifyCodeScreen()),
-      GetPage(name: ResetPasswordScreen.routeName, page: () => ResetPasswordScreen()),
+      GetPage(
+          name: ResetPasswordScreen.routeName,
+          page: () => ResetPasswordScreen()),
 
       // * Viewer Screen
       GetPage(name: ViewerScreen.routeName, page: () => const ViewerScreen()),
