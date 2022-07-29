@@ -46,6 +46,9 @@ abstract class MRKStrings {
   static const homeCommunity = 'home.community';
   static const homeMall = 'home.mall';
 
+  // * Tips Screen
+  static const tipsTitle = 'tips.title';
+
   // * Validation Messages
   static const successTitle = 'success.title';
   static const errorTitle = 'error.title';
