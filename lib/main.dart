@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: _getTheme(),
       translations: MRKTranslations(),
-      locale: const Locale('en'),
+      locale: SupportedLocales.enLocale,
       fallbackLocale: SupportedLocales.enLocale,
       initialBinding: ControllersBinder(),
       initialRoute: SplashScreen.routeName,
