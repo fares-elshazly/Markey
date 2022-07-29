@@ -49,6 +49,9 @@ abstract class MRKStrings {
   // * Chat Screen
   static const chatTitle = 'chat.title';
 
+  // * Notifications Screen
+  static const notificationsTitle = 'notifications.title';
+
   // * Tips Screen
   static const tipsTitle = 'tips.title';
 
