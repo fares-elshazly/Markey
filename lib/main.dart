@@ -15,6 +15,7 @@ import 'Screens/Viewer/viewer.dart';
 import 'Screens/Viewer/home.dart';
 import 'Screens/Viewer/chat.dart';
 import 'Screens/Viewer/notifications.dart';
+import 'Screens/Viewer/profile.dart';
 
 import 'Screens/Tips/tips.dart';
 
@@ -85,6 +86,7 @@ class MyApp extends StatelessWidget {
       GetPage(name: HomeScreen.routeName, page: () => const HomeScreen()),
       GetPage(name: ChatScreen.routeName, page: () => const ChatScreen()),
       GetPage(name: NotificationsScreen.routeName, page: () => const NotificationsScreen()),
+      GetPage(name: ProfileScreen.routeName, page: () => const ProfileScreen()),
 
       // * Tips Screens
       GetPage(name: TipsScreen.routeName, page: () => const TipsScreen()),
