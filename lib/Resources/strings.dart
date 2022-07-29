@@ -40,6 +40,12 @@ abstract class MRKStrings {
   static const viewerNotifications = 'viewer.notifications';
   static const viewerProfile = 'viewer.profile';
 
+  // * Home Screen
+  static const homeGreeting = 'home.greeting';
+  static const homeTips = 'home.tips';
+  static const homeCommunity = 'home.community';
+  static const homeMall = 'home.mall';
+
   // * Validation Messages
   static const successTitle = 'success.title';
   static const errorTitle = 'error.title';
