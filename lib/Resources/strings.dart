@@ -46,8 +46,14 @@ abstract class MRKStrings {
   static const homeCommunity = 'home.community';
   static const homeMall = 'home.mall';
 
+  // * Chat Screen
+  static const chatTitle = 'chat.title';
+
   // * Tips Screen
   static const tipsTitle = 'tips.title';
+
+  // * Shared
+  static const sharedSearch = 'shared.search';
 
   // * Validation Messages
   static const successTitle = 'success.title';
