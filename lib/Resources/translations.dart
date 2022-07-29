@@ -49,6 +49,8 @@ class MRKTranslations extends Translations {
 
         MRKStrings.chatTitle: 'Chat',
 
+        MRKStrings.notificationsTitle: 'Notifications',
+
         MRKStrings.tipsTitle: 'Tips',
 
         MRKStrings.sharedSearch: 'Search ..',
