@@ -70,6 +70,8 @@ class ProfileScreen extends StatelessWidget {
   Widget _buildTiles() {
     return Column(
       children: [
+        _buildBecomeExpert(),
+        SizedBox(height: _tilesMargin),
         _buildEditProfile(),
         SizedBox(height: _tilesMargin),
         _buildLanguage(),
@@ -80,6 +82,14 @@ class ProfileScreen extends StatelessWidget {
         SizedBox(height: _tilesMargin),
         _buildLogout(),
       ],
+    );
+  }
+
+  Widget _buildBecomeExpert() {
+    return ProfileTile(
+      icon: CupertinoIcons.briefcase,
+      title: MRKStrings.profileBecomeExpert,
+      behavior: () {},
     );
   }
 
