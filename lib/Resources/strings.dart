@@ -63,6 +63,9 @@ abstract class MRKStrings {
   // * Tips Screen
   static const tipsTitle = 'tips.title';
 
+  // * Community Screen
+  static const communityTitle = 'community.title';
+
   // * Shared
   static const sharedSearch = 'shared.search';
 
