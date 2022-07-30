@@ -19,6 +19,8 @@ import 'Screens/Viewer/profile.dart';
 
 import 'Screens/Tips/tips.dart';
 
+import 'Screens/Community/community.dart';
+
 import 'Resources/translations.dart';
 
 import 'Factories/colors_factory.dart';
@@ -90,6 +92,9 @@ class MyApp extends StatelessWidget {
 
       // * Tips Screens
       GetPage(name: TipsScreen.routeName, page: () => const TipsScreen()),
+
+      // * Tips Screens
+      GetPage(name: CommunityScreen.routeName, page: () => const CommunityScreen()),
     ];
   }
 }
