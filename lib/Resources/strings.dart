@@ -53,6 +53,7 @@ abstract class MRKStrings {
   static const notificationsTitle = 'notifications.title';
 
   // * Profile Screen
+  static const profileBecomeExpert = 'profile.become.expert';
   static const profileEdit = 'profile.edit';
   static const profileLanguage = 'profile.language';
   static const profilePrivacy = 'profile.privacy';
