@@ -60,6 +60,8 @@ class MRKTranslations extends Translations {
 
         MRKStrings.tipsTitle: 'Tips',
 
+        MRKStrings.communityTitle: 'Community',
+
         MRKStrings.sharedSearch: 'Search ..',
 
         MRKStrings.successTitle: 'Success!',
