@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/Screens/Tips/tips.dart';
+import '/Screens/Community/community.dart';
 import '/Widgets/Home/greeting.dart';
 import '/Widgets/Home/service_card.dart';
 import '/Widgets/Home/shop_card.dart';
@@ -115,5 +116,7 @@ class HomeScreen extends StatelessWidget {
     Get.toNamed(TipsScreen.routeName);
   }
 
-  void _community() {}
+  void _community() {
+    Get.toNamed(CommunityScreen.routeName);
+  }
 }
