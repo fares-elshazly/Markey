@@ -13,7 +13,7 @@ class SubmitButton extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final _padding = 7.5;
+  final _padding = 15.0;
   final _borderRadius = 8.0;
 
   @override
@@ -21,23 +21,41 @@ class SubmitButton extends StatelessWidget {
     return TextButton(
       onPressed: behaviour,
       style: _buildStyle(context),
-      child: _buildContent(),
+      child: _buildContent(context),
     );
   }
 
   ButtonStyle _buildStyle(BuildContext context) {
     return TextButton.styleFrom(
+      padding: EdgeInsets.zero,
       primary: ColorsFactory.secondary,
       backgroundColor: ColorsFactory.primary,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(_borderRadius)),
+      shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(_borderRadius)),
       fixedSize: Size.fromWidth(MediaQuery.of(context).size.width),
     );
   }
 
-  Widget _buildContent() {
-    return Padding(
+  Widget _buildContent(BuildContext context) {
+    return Ink(
+      width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.all(_padding),
-      child: _buildLabel(),
+      decoration: _buildDecoration(),
+      child: Center(child: _buildLabel()),
+    );
+  }
+
+  BoxDecoration _buildDecoration() {
+    return BoxDecoration(
+      borderRadius: BorderRadius.circular(_borderRadius),
+      gradient: _buildGradient(),
+    );
+  }
+
+  LinearGradient _buildGradient() {
+    return const LinearGradient(
+      colors: [ColorsFactory.gradientTop, ColorsFactory.gradientBottom],
+      begin: AlignmentDirectional.topCenter,
+      end: AlignmentDirectional.bottomCenter,
     );
   }
 
