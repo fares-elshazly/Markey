@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '/Screens/Authentication/forgot_password.dart';
 import '/Screens/Viewer/viewer.dart';
 import '/Screens/Authentication/register.dart';
+import '/Widgets/Shared/background.dart';
 import '/Widgets/Shared/custom_text_field.dart';
 import '/Widgets/Shared/submit_button.dart';
 import '/Widgets/Authentication/social_buttons.dart';
@@ -36,8 +37,17 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorsFactory.secondaryBackground,
-      body: _buildBody(context),
+      body: _buildLayout(context),
       bottomNavigationBar: _buildBottomBar(),
+    );
+  }
+
+  Widget _buildLayout(BuildContext context) {
+    return Stack(
+      children: [
+        const Background(),
+        _buildBody(context),
+      ],
     );
   }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '/Widgets/Shared/back_app_bar.dart';
+import '/Widgets/Shared/background.dart';
 import '/Widgets/Shared/custom_text_field.dart';
 import '/Widgets/Shared/submit_button.dart';
 import '/Resources/strings.dart';
@@ -26,12 +27,21 @@ class ResetPasswordScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: ColorsFactory.secondaryBackground,
       appBar: _buildAppBar(),
-      body: _buildBody(context),
+      body: _buildLayout(context),
     );
   }
 
   PreferredSizeWidget _buildAppBar() {
     return const BackAppBar(title: MRKStrings.resetPasswordTitle);
+  }
+
+  Widget _buildLayout(BuildContext context) {
+    return Stack(
+      children: [
+        const Background(),
+        _buildBody(context),
+      ],
+    );
   }
 
   Widget _buildBody(BuildContext context) {
