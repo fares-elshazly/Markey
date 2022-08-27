@@ -12,7 +12,7 @@ import 'Screens/Authentication/forgot_password.dart';
 import 'Screens/Authentication/verify_code.dart';
 import 'Screens/Authentication/reset_password.dart';
 
-import 'Screens/Tips/tips.dart';
+import 'Screens/Tipsters/tipsters.dart';
 
 import 'Screens/Community/community.dart';
 
@@ -79,10 +79,10 @@ class MyApp extends StatelessWidget {
       GetPage(name: VerifyCodeScreen.routeName, page: () => VerifyCodeScreen()),
       GetPage(name: ResetPasswordScreen.routeName, page: () => ResetPasswordScreen()),
 
-      // * Tips Screens
-      GetPage(name: TipsScreen.routeName, page: () => const TipsScreen()),
+      // * Tipsters Screens
+      GetPage(name: TipstersScreen.routeName, page: () => const TipstersScreen()),
 
-      // * Tips Screens
+      // * Community Screens
       GetPage(name: CommunityScreen.routeName, page: () => const CommunityScreen()),
     ];
   }
