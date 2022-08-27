@@ -7,10 +7,10 @@ import '/Resources/strings.dart';
 import '/Factories/colors_factory.dart';
 import '/Utilities/helpers.dart';
 
-class TipsScreen extends StatelessWidget {
+class TipstersScreen extends StatelessWidget {
   static const routeName = '/Tips';
 
-  const TipsScreen({Key? key}) : super(key: key);
+  const TipstersScreen({Key? key}) : super(key: key);
 
   final _bodyHorizontalMargin = 15.0;
   final _contentMargin = 10.0;
