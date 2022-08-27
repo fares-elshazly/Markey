@@ -38,9 +38,9 @@ class MRKTranslations extends Translations {
         MRKStrings.resetPasswordSubmit: 'Reset',
 
         MRKStrings.homeGreeting: 'Hello 👋🏻',
+        MRKStrings.homeActiveProjects: 'Active Projects',
         MRKStrings.homeTipsters: 'Tipsters',
         MRKStrings.homeCommunity: 'Community',
-        MRKStrings.homeMall: 'Mall',
 
         MRKStrings.chatTitle: 'Chat',
 
@@ -57,6 +57,7 @@ class MRKTranslations extends Translations {
 
         MRKStrings.communityTitle: 'Community',
 
+        MRKStrings.sharedViewAll: 'View All',
         MRKStrings.sharedSearch: 'Search ..',
 
         MRKStrings.successTitle: 'Success!',
