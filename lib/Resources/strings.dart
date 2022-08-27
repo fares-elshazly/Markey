@@ -36,9 +36,9 @@ abstract class MRKStrings {
 
   // * Home Screen
   static const homeGreeting = 'home.greeting';
+  static const homeActiveProjects = 'home.active.projects';
   static const homeTipsters = 'home.tips';
   static const homeCommunity = 'home.community';
-  static const homeMall = 'home.mall';
 
   // * Chat Screen
   static const chatTitle = 'chat.title';
@@ -62,6 +62,7 @@ abstract class MRKStrings {
 
   // * Shared
   static const sharedSearch = 'shared.search';
+  static const sharedViewAll = 'shared.see.all';
 
   // * Validation Messages
   static const successTitle = 'success.title';
