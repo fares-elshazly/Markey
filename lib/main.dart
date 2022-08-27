@@ -4,18 +4,13 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 import 'Screens/Shared/splash.dart';
+import 'Screens/Shared/home.dart';
 
 import 'Screens/Authentication/login.dart';
 import 'Screens/Authentication/register.dart';
 import 'Screens/Authentication/forgot_password.dart';
 import 'Screens/Authentication/verify_code.dart';
 import 'Screens/Authentication/reset_password.dart';
-
-import 'Screens/Viewer/viewer.dart';
-import 'Screens/Viewer/home.dart';
-import 'Screens/Viewer/chat.dart';
-import 'Screens/Viewer/notifications.dart';
-import 'Screens/Viewer/profile.dart';
 
 import 'Screens/Tips/tips.dart';
 
@@ -75,6 +70,7 @@ class MyApp extends StatelessWidget {
     return [
       // * Shared Screens
       GetPage(name: SplashScreen.routeName, page: () => const SplashScreen()),
+      GetPage(name: HomeScreen.routeName, page: () => const HomeScreen()),
 
       // * Authentication Screens
       GetPage(name: LoginScreen.routeName, page: () => LoginScreen()),
@@ -82,13 +78,6 @@ class MyApp extends StatelessWidget {
       GetPage(name: ForgotPasswordScreen.routeName, page: () => ForgotPasswordScreen()),
       GetPage(name: VerifyCodeScreen.routeName, page: () => VerifyCodeScreen()),
       GetPage(name: ResetPasswordScreen.routeName, page: () => ResetPasswordScreen()),
-
-      // * Viewer Screens
-      GetPage(name: ViewerScreen.routeName, page: () => const ViewerScreen()),
-      GetPage(name: HomeScreen.routeName, page: () => const HomeScreen()),
-      GetPage(name: ChatScreen.routeName, page: () => const ChatScreen()),
-      GetPage(name: NotificationsScreen.routeName, page: () => const NotificationsScreen()),
-      GetPage(name: ProfileScreen.routeName, page: () => const ProfileScreen()),
 
       // * Tips Screens
       GetPage(name: TipsScreen.routeName, page: () => const TipsScreen()),
