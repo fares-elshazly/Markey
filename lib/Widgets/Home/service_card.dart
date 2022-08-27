@@ -48,6 +48,7 @@ class ServiceCard extends StatelessWidget {
         _images[index % _images.length],
         width: _width,
         height: _height,
+        fit: BoxFit.cover,
       ),
     );
   }
@@ -69,7 +70,7 @@ class ServiceCard extends StatelessWidget {
 
   Widget _buildTitle() {
     return TextFactory.buildTitle2(
-      'Lorem Ipsum',
+      'Service $index',
       weight: FontWeights.semiBold,
       color: ColorsFactory.secondary,
     );
