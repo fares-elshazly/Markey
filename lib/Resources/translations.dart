@@ -37,13 +37,8 @@ class MRKTranslations extends Translations {
         MRKStrings.resetPasswordConfirmNewPassword: 'Confirm New Password',
         MRKStrings.resetPasswordSubmit: 'Reset',
 
-        MRKStrings.viewerHome: 'Home',
-        MRKStrings.viewerChat: 'Chat',
-        MRKStrings.viewerNotifications: 'Notifications',
-        MRKStrings.viewerProfile: 'Profile',
-
         MRKStrings.homeGreeting: 'Hello 👋🏻',
-        MRKStrings.homeTips: 'Tips',
+        MRKStrings.homeTipsters: 'Tipsters',
         MRKStrings.homeCommunity: 'Community',
         MRKStrings.homeMall: 'Mall',
 
@@ -58,7 +53,7 @@ class MRKTranslations extends Translations {
         MRKStrings.profileShare: 'Tell A Friend',
         MRKStrings.profileLogout: 'Logout',
 
-        MRKStrings.tipsTitle: 'Tips',
+        MRKStrings.tipsTitle: 'Tipsters',
 
         MRKStrings.communityTitle: 'Community',
 
