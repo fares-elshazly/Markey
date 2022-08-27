@@ -1,64 +1,61 @@
 import 'package:flutter/material.dart';
 
+import '/Resources/images.dart';
 import '/Factories/text_factory.dart';
 import '/Factories/colors_factory.dart';
 
 class ServiceCard extends StatelessWidget {
-  final Color backgroundColor;
-  final String imagePath;
-  final String title;
-  final VoidCallback behavior;
+  final int index;
 
-  const ServiceCard({
-    required this.backgroundColor,
-    required this.imagePath,
-    required this.title,
-    required this.behavior,
-    Key? key,
-  }) : super(key: key);
+  const ServiceCard({required this.index, Key? key}) : super(key: key);
 
+  final _images = const [
+    MRKImages.shop1,
+    MRKImages.shop2,
+    MRKImages.shop3,
+    MRKImages.shop4,
+    MRKImages.shop5,
+  ];
+
+  final _width = 300.0;
+  final _height = 200.0;
   final _borderRadius = 8.0;
-
-  final _sectionCardHeight = 200.0;
   final _overlayOpacity = 0.3;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: behavior,
+      onTap: () {},
       child: _buildContent(),
     );
   }
 
-  Stack _buildContent() {
+  Widget _buildContent() {
     return Stack(
       alignment: Alignment.center,
       children: [
-        _buildCard(),
+        _buildImage(),
         _buildOverlay(),
         _buildTitle(),
       ],
     );
   }
 
-  Widget _buildCard() {
-    return Container(
-      height: _sectionCardHeight,
-      decoration: _buildDecoration(),
-    );
-  }
-
-  BoxDecoration _buildDecoration() {
-    return BoxDecoration(
-      color: backgroundColor,
-      image: DecorationImage(image: AssetImage(imagePath)),
+  Widget _buildImage() {
+    return ClipRRect(
       borderRadius: BorderRadius.circular(_borderRadius),
+      child: Image.asset(
+        _images[index % _images.length],
+        width: _width,
+        height: _height,
+      ),
     );
   }
 
   Widget _buildOverlay() {
     return Container(
-      height: _sectionCardHeight,
+      width: _width,
+      height: _height,
       decoration: _buildOverlayDecoration(),
     );
   }
@@ -72,7 +69,7 @@ class ServiceCard extends StatelessWidget {
 
   Widget _buildTitle() {
     return TextFactory.buildTitle2(
-      title,
+      'Lorem Ipsum',
       weight: FontWeights.semiBold,
       color: ColorsFactory.secondary,
     );
