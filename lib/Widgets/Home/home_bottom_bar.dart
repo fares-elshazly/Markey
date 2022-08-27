@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '/Screens/Tipsters/tipsters.dart';
+import '/Screens/Community/community.dart';
 import '/Resources/strings.dart';
 import '/Resources/icons.dart';
 import '/Factories/text_factory.dart';
@@ -103,9 +106,13 @@ class HomeBottomBar extends StatelessWidget {
     );
   }
 
-  void _tipsters() {}
+  void _tipsters() {
+    Get.toNamed(TipstersScreen.routeName);
+  }
 
-  void _community() {}
+  void _community() {
+    Get.toNamed(CommunityScreen.routeName);
+  }
 }
 
 class HomeFAB extends StatelessWidget {
