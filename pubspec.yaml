@@ -32,6 +32,8 @@ dev_dependencies:
 
   flutter_lints: ^2.0.0
 
+  device_preview: ^1.1.0
+
   build_runner: ^2.1.11
   chopper_generator: ^4.0.6
 
