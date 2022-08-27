@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '/Screens/Authentication/forgot_password.dart';
-import '/Screens/Viewer/viewer.dart';
+import '/Screens/Shared/home.dart';
 import '/Screens/Authentication/register.dart';
 import '/Widgets/Shared/background.dart';
 import '/Widgets/Shared/custom_text_field.dart';
@@ -169,7 +169,7 @@ class LoginScreen extends StatelessWidget {
   }
 
   void _submit() {
-    Get.toNamed(ViewerScreen.routeName);
+    Get.toNamed(HomeScreen.routeName);
   }
 
   void _register() {
