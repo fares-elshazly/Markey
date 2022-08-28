@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '/Widgets/Home/home_drawer.dart';
 import '/Widgets/Home/greeting.dart';
 import '/Widgets/Home/service_card.dart';
 import '/Widgets/Home/active_project_tile.dart';
@@ -24,6 +25,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const HomeDrawer(),
       body: _buildBody(context),
       bottomNavigationBar: const HomeBottomBar(),
       floatingActionButton: const HomeFAB(),
