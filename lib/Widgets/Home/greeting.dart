@@ -13,12 +13,20 @@ class Greeting extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        _buildInfo(),
+        _buildDrawer(context),
         SizedBox(width: _contentMargin),
+        _buildInfo(),
+        const Spacer(),
         _buildAvatar(),
       ],
+    );
+  }
+
+  Widget _buildDrawer(BuildContext context) {
+    return IconButton(
+      onPressed: () => _openDrawer(context),
+      icon: const Icon(Icons.menu),
     );
   }
 
@@ -46,5 +54,9 @@ class Greeting extends StatelessWidget {
 
   Widget _buildAvatar() {
     return const Avatar();
+  }
+
+  void _openDrawer(BuildContext context) {
+    Scaffold.of(context).openDrawer();
   }
 }
