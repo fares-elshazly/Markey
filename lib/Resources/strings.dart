@@ -40,6 +40,13 @@ abstract class MRKStrings {
   static const homeTipsters = 'home.tips';
   static const homeCommunity = 'home.community';
 
+  // * Home Drawer
+  static const homeDrawerProfile = 'home.drawer.profile';
+  static const homeDrawerChats = 'home.drawer.chats';
+  static const homeDrawerWallet = 'home.drawer.wallet';
+  static const homeDrawerSettings = 'home.drawer.settings';
+  static const homeDrawerSupport = 'home.drawer.support';
+
   // * Chat Screen
   static const chatTitle = 'chat.title';
 
