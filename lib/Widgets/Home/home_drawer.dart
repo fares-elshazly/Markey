@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+import '/Widgets/Shared/background.dart';
 import '/Widgets/Shared/avatar.dart';
 import '/Resources/strings.dart';
 import '/Factories/text_factory.dart';
@@ -14,7 +15,16 @@ class HomeDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: _buildContent(),
+      child: _buildBody(),
+    );
+  }
+
+  Widget _buildBody() {
+    return Stack(
+      children: [
+        _buildContent(),
+        const Background(),
+      ],
     );
   }
 
