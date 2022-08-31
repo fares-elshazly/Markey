@@ -52,12 +52,13 @@ class MRKTranslations extends Translations {
 
         MRKStrings.notificationsTitle: 'Notifications',
 
-        MRKStrings.profileBecomeExpert: 'Become An Expert',
-        MRKStrings.profileEdit: 'Edit Profile',
-        MRKStrings.profileLanguage: 'Language',
-        MRKStrings.profilePrivacy: 'Privacy Policy',
-        MRKStrings.profileShare: 'Tell A Friend',
-        MRKStrings.profileLogout: 'Logout',
+        MRKStrings.settingsTitle: 'Settings',
+        MRKStrings.settingsBecomeExpert: 'Become An Expert',
+        MRKStrings.settingsEditProfile: 'Edit Profile',
+        MRKStrings.settingsLanguage: 'Language',
+        MRKStrings.settingsPrivacy: 'Privacy Policy',
+        MRKStrings.settingsShare: 'Tell A Friend',
+        MRKStrings.settingsLogout: 'Logout',
 
         MRKStrings.tipsTitle: 'Tipsters',
 
