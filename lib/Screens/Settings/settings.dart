@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+import '/Widgets/Shared/back_app_bar.dart';
 import '/Widgets/Shared/avatar.dart';
-import '/Widgets/Profile/profile_tile.dart';
+import '/Widgets/Settings/settings_tile.dart';
 import '/Resources/strings.dart';
 import '/Factories/text_factory.dart';
 
-class ProfileScreen extends StatelessWidget {
-  static const routeName = '/Profile';
+class SettingsScreen extends StatelessWidget {
+  static const routeName = '/Settings';
 
-  const ProfileScreen({Key? key}) : super(key: key);
+  const SettingsScreen({Key? key}) : super(key: key);
 
   final _bodyHorizontalMargin = 15.0;
   final _bodyVerticalMargin = 15.0;
@@ -22,12 +23,11 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          padding: EdgeInsets.symmetric(horizontal: _bodyHorizontalMargin),
-          child: _buildContent(),
-        ),
+      appBar: const BackAppBar(title: MRKStrings.settingsTitle),
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        padding: EdgeInsets.symmetric(horizontal: _bodyHorizontalMargin),
+        child: _buildContent(),
       ),
     );
   }
@@ -86,49 +86,49 @@ class ProfileScreen extends StatelessWidget {
   }
 
   Widget _buildBecomeExpert() {
-    return ProfileTile(
+    return SettingsTile(
       icon: CupertinoIcons.briefcase,
-      title: MRKStrings.profileBecomeExpert,
+      title: MRKStrings.settingsBecomeExpert,
       behavior: () {},
     );
   }
 
   Widget _buildEditProfile() {
-    return ProfileTile(
+    return SettingsTile(
       icon: CupertinoIcons.pencil_outline,
-      title: MRKStrings.profileEdit,
+      title: MRKStrings.settingsEditProfile,
       behavior: () {},
     );
   }
 
   Widget _buildLanguage() {
-    return ProfileTile(
+    return SettingsTile(
       icon: CupertinoIcons.globe,
-      title: MRKStrings.profileLanguage,
+      title: MRKStrings.settingsLanguage,
       behavior: () {},
     );
   }
 
   Widget _buildPrivacy() {
-    return ProfileTile(
+    return SettingsTile(
       icon: CupertinoIcons.eye,
-      title: MRKStrings.profilePrivacy,
+      title: MRKStrings.settingsPrivacy,
       behavior: () {},
     );
   }
 
   Widget _buildShare() {
-    return ProfileTile(
+    return SettingsTile(
       icon: CupertinoIcons.paperplane,
-      title: MRKStrings.profileShare,
+      title: MRKStrings.settingsShare,
       behavior: () {},
     );
   }
 
   Widget _buildLogout() {
-    return ProfileTile(
+    return SettingsTile(
       icon: CupertinoIcons.escape,
-      title: MRKStrings.profileLogout,
+      title: MRKStrings.settingsLogout,
       behavior: () {},
     );
   }
