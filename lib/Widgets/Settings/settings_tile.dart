@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import '/Factories/text_factory.dart';
 import '/Factories/colors_factory.dart';
 
-class ProfileTile extends StatelessWidget {
+class SettingsTile extends StatelessWidget {
   final IconData icon;
   final String title;
   final VoidCallback behavior;
 
-  const ProfileTile({
+  const SettingsTile({
     required this.icon,
     required this.title,
     required this.behavior,
