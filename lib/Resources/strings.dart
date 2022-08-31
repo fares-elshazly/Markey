@@ -47,13 +47,22 @@ abstract class MRKStrings {
   static const homeDrawerSettings = 'home.drawer.settings';
   static const homeDrawerSupport = 'home.drawer.support';
 
+  // * Profile Screen
+  static const profileTitle = 'profile.title';
+  static const profileStatsRate = 'profile.stats.rate';
+  static const profileStatsTips = 'profile.stats.tips';
+  static const profileStatsVotes = 'profile.stats.votes';
+  static const profilePortfolio = 'profile.portfolio';
+  static const profilePackages = 'profile.services';
+  static const profileTips = 'profile.tips';
+
   // * Chat Screen
   static const chatTitle = 'chat.title';
 
   // * Notifications Screen
   static const notificationsTitle = 'notifications.title';
 
-  // * Profile Screen
+  // * Settings Screen
   static const settingsTitle = 'settings.title';
   static const settingsBecomeExpert = 'settings.become.expert';
   static const settingsEditProfile = 'settings.edit.profile';
