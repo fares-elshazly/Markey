@@ -54,12 +54,13 @@ abstract class MRKStrings {
   static const notificationsTitle = 'notifications.title';
 
   // * Profile Screen
-  static const profileBecomeExpert = 'profile.become.expert';
-  static const profileEdit = 'profile.edit';
-  static const profileLanguage = 'profile.language';
-  static const profilePrivacy = 'profile.privacy';
-  static const profileShare = 'profile.share';
-  static const profileLogout = 'profile.logout';
+  static const settingsTitle = 'settings.title';
+  static const settingsBecomeExpert = 'settings.become.expert';
+  static const settingsEditProfile = 'settings.edit.profile';
+  static const settingsLanguage = 'settings.language';
+  static const settingsPrivacy = 'settings.privacy';
+  static const settingsShare = 'settings.share';
+  static const settingsLogout = 'settings.logout';
 
   // * Tips Screen
   static const tipsTitle = 'tips.title';
