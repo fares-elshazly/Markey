@@ -16,6 +16,12 @@ import 'Screens/Tipsters/tipsters.dart';
 
 import 'Screens/Community/community.dart';
 
+import 'Screens/Notifications/notifications.dart';
+
+import 'Screens/Chat/chat.dart';
+
+import 'Screens/Settings/settings.dart';
+
 import 'Resources/translations.dart';
 
 import 'Factories/colors_factory.dart';
@@ -84,6 +90,15 @@ class MyApp extends StatelessWidget {
 
       // * Community Screens
       GetPage(name: CommunityScreen.routeName, page: () => const CommunityScreen()),
+
+      // * Chat Screens
+      GetPage(name: ChatScreen.routeName, page: () => const ChatScreen()),
+
+      // * Notifications Screens
+      GetPage(name: NotificationsScreen.routeName, page: () => const NotificationsScreen()),
+
+      // * Settings Screens
+      GetPage(name: SettingsScreen.routeName, page: () => const SettingsScreen()),
     ];
   }
 }
