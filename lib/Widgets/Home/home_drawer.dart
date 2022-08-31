@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 
+import '/Screens/Chat/chat.dart';
+import '/Screens/Settings/settings.dart';
 import '/Widgets/Shared/background.dart';
 import '/Widgets/Shared/avatar.dart';
 import '/Resources/strings.dart';
@@ -82,7 +85,7 @@ class HomeDrawer extends StatelessWidget {
     return _buildTile(
       CupertinoIcons.chat_bubble_text_fill,
       MRKStrings.homeDrawerChats,
-      () {},
+      () => Get.toNamed(ChatScreen.routeName),
     );
   }
 
@@ -98,7 +101,7 @@ class HomeDrawer extends StatelessWidget {
     return _buildTile(
       Icons.settings,
       MRKStrings.homeDrawerSettings,
-      () {},
+      () => Get.toNamed(SettingsScreen.routeName),
     );
   }
 
