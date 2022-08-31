@@ -20,6 +20,8 @@ import 'Screens/Mall/mall.dart';
 
 import 'Screens/Notifications/notifications.dart';
 
+import 'Screens/Profile/profile.dart';
+
 import 'Screens/Chat/chat.dart';
 
 import 'Screens/Settings/settings.dart';
@@ -95,6 +97,9 @@ class MyApp extends StatelessWidget {
 
       // * Mall Screens
       GetPage(name: MallScreen.routeName, page: () => const MallScreen()),
+
+      // * Profile Screens
+      GetPage(name: ProfileScreen.routeName, page: () => const ProfileScreen()),
 
       // * Chat Screens
       GetPage(name: ChatScreen.routeName, page: () => const ChatScreen()),
