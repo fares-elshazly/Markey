@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '/Screens/Tipsters/tipsters.dart';
 import '/Screens/Community/community.dart';
+import '/Screens/Mall/mall.dart';
 import '/Resources/strings.dart';
 import '/Resources/icons.dart';
 import '/Factories/text_factory.dart';
@@ -159,5 +160,7 @@ class HomeFAB extends StatelessWidget {
     );
   }
 
-  void _submit() {}
+  void _submit() {
+    Get.toNamed(MallScreen.routeName);
+  }
 }
