@@ -64,6 +64,10 @@ class MRKTranslations extends Translations {
 
         MRKStrings.communityTitle: 'Community',
 
+        MRKStrings.mallTitle: 'Mall',
+        MRKStrings.mallServices: 'Services',
+        MRKStrings.mallShops: 'Shops',
+
         MRKStrings.sharedViewAll: 'View All',
         MRKStrings.sharedSearch: 'Search ..',
 
