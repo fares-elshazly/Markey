@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
+import '/Screens/Profile/profile.dart';
 import '/Screens/Chat/chat.dart';
 import '/Screens/Settings/settings.dart';
 import '/Widgets/Shared/background.dart';
@@ -77,7 +78,7 @@ class HomeDrawer extends StatelessWidget {
     return _buildTile(
       Icons.person,
       MRKStrings.homeDrawerProfile,
-      () {},
+      () => Get.toNamed(ProfileScreen.routeName),
     );
   }
 
