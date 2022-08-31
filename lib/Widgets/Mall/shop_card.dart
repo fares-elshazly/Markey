@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 import '/Resources/images.dart';
@@ -113,9 +111,7 @@ class ShopCard extends StatelessWidget {
       children: [
         const Icon(Icons.star, color: ColorsFactory.rate),
         SizedBox(width: _textMargin),
-        TextFactory.buildNormalText3(
-          (Random().nextDouble() * 5).toStringAsFixed(1),
-        ),
+        TextFactory.buildNormalText3((index % 5).toStringAsFixed(1)),
       ],
     );
   }
