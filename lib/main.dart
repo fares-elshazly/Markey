@@ -16,6 +16,8 @@ import 'Screens/Tipsters/tipsters.dart';
 
 import 'Screens/Community/community.dart';
 
+import 'Screens/Mall/mall.dart';
+
 import 'Screens/Notifications/notifications.dart';
 
 import 'Screens/Chat/chat.dart';
@@ -90,6 +92,9 @@ class MyApp extends StatelessWidget {
 
       // * Community Screens
       GetPage(name: CommunityScreen.routeName, page: () => const CommunityScreen()),
+
+      // * Mall Screens
+      GetPage(name: MallScreen.routeName, page: () => const MallScreen()),
 
       // * Chat Screens
       GetPage(name: ChatScreen.routeName, page: () => const ChatScreen()),
