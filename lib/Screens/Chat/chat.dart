@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '/Widgets/Shared/title_app_bar.dart';
+import '/Widgets/Shared/back_app_bar.dart';
 import '/Widgets/Shared/search_field.dart';
 import '/Widgets/Chat/conversation_tile.dart';
 import '/Resources/strings.dart';
@@ -18,13 +18,9 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(),
+      appBar: const BackAppBar(title: MRKStrings.chatTitle),
       body: _buildBody(context),
     );
-  }
-
-  PreferredSizeWidget _buildAppBar() {
-    return const TitleAppBar(title: MRKStrings.chatTitle);
   }
 
   Widget _buildBody(BuildContext context) {
