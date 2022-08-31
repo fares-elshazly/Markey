@@ -68,6 +68,11 @@ abstract class MRKStrings {
   // * Community Screen
   static const communityTitle = 'community.title';
 
+  // * Mall Screen
+  static const mallTitle = 'mall.title';
+  static const mallServices = 'mall.services';
+  static const mallShops = 'mall.shops';
+
   // * Shared
   static const sharedSearch = 'shared.search';
   static const sharedViewAll = 'shared.see.all';
