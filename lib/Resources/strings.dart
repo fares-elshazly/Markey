@@ -77,6 +77,12 @@ abstract class MRKStrings {
   // * Community Screen
   static const communityTitle = 'community.title';
 
+  // * Business Card Widget
+  static const businessCardAbout = 'business.card.about';
+  static const businessCardOffer = 'business.card.offer';
+  static const businessCardReviewTitle = 'business.card.review.title';
+  static const businessCardReviewSubmit = 'business.card.review.submit';
+
   // * Mall Screen
   static const mallTitle = 'mall.title';
   static const mallServices = 'mall.services';
