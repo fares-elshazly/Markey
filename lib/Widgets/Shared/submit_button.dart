@@ -28,9 +28,9 @@ class SubmitButton extends StatelessWidget {
   ButtonStyle _buildStyle(BuildContext context) {
     return TextButton.styleFrom(
       padding: EdgeInsets.zero,
-      primary: ColorsFactory.secondary,
+      foregroundColor: ColorsFactory.secondary,
       backgroundColor: ColorsFactory.primary,
-      shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(_borderRadius)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(_borderRadius)),
       fixedSize: Size.fromWidth(MediaQuery.of(context).size.width),
     );
   }
