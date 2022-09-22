@@ -34,9 +34,8 @@ class TipstersScreen extends StatelessWidget {
   Widget _buildBody(BuildContext context) {
     return GestureDetector(
       onTap: Helpers.dismissKeyboard,
-      child: Container(
+      child: SizedBox(
         width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.symmetric(horizontal: _bodyHorizontalMargin),
         child: _buildContent(),
       ),
     );
@@ -53,13 +52,17 @@ class TipstersScreen extends StatelessWidget {
   }
 
   Widget _buildSearch() {
-    return SearchField();
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: _bodyHorizontalMargin),
+      child: SearchField(),
+    );
   }
 
   Widget _buildTips() {
     return Expanded(
-      child: ListView.builder(
+      child: ListView.separated(
         itemCount: 10,
+        separatorBuilder: (_, __) => const Divider(),
         itemBuilder: (BuildContext context, int index) {
           return _buildTipCard(index);
         },
