@@ -12,9 +12,9 @@ class TipCard extends StatelessWidget {
 
   const TipCard({required this.index, Key? key}) : super(key: key);
 
-  final _borderRadius = 8.0;
-  final _thumbSide = 60.0;
   final _textMargin = 4.0;
+  final _iconSize = 18.0;
+  final _contentMargin = 10.0;
 
   final _images = const [
     MRKImages.shop1,
@@ -27,29 +27,18 @@ class TipCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      tileColor: ColorsFactory.secondary,
-      shape: _buildShape(),
-      leading: _buildThumbnail(),
+      onTap: _viewTips,
+      leading: _buildAvatar(),
       title: _buildTitle(),
-      subtitle: _buildDateTime(),
-      trailing: _buildRate(),
+      subtitle: _buildBody(),
+      trailing: _buildDateTime(),
     );
   }
 
-  ShapeBorder _buildShape() {
-    return RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(_borderRadius),
-    );
-  }
-
-  Widget _buildThumbnail() {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(_borderRadius),
-      child: Image.asset(
+  Widget _buildAvatar() {
+    return CircleAvatar(
+      foregroundImage: AssetImage(
         _images[index % _images.length],
-        width: _thumbSide,
-        height: _thumbSide,
-        fit: BoxFit.cover,
       ),
     );
   }
@@ -61,10 +50,43 @@ class TipCard extends StatelessWidget {
     );
   }
 
-  Widget _buildDateTime() {
+  Widget _buildBody() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _buildName(),
+        SizedBox(height: _contentMargin),
+        _buildStats(),
+      ],
+    );
+  }
+
+  Widget _buildName() {
     return TextFactory.buildNormalText4(
-      Helpers.timeAgo(_generateDateTime()),
-      color: ColorsFactory.secondaryText,
+      '@Username',
+      color: ColorsFactory.hyperlink,
+    );
+  }
+
+  Widget _buildStats() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        _buildRepost(),
+        _buildRate(),
+        _buildShare(),
+      ],
+    );
+  }
+
+  Widget _buildRepost() {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(Icons.sync, size: _iconSize, color: ColorsFactory.tertiaryText),
+        SizedBox(width: _textMargin),
+        TextFactory.buildNormalText4('${_generateRepost()}'),
+      ],
     );
   }
 
@@ -72,17 +94,41 @@ class TipCard extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const Icon(Icons.star, color: ColorsFactory.rate),
+        Icon(Icons.star, size: _iconSize, color: ColorsFactory.rate),
         SizedBox(width: _textMargin),
-        TextFactory.buildNormalText4(
-          (Random().nextDouble() * 5).toStringAsFixed(1),
-        ),
+        TextFactory.buildNormalText4(_generateRate().toStringAsFixed(1)),
       ],
     );
   }
 
+  Widget _buildShare() {
+    return IconButton(
+      onPressed: _share,
+      padding: EdgeInsets.zero,
+      constraints: const BoxConstraints(),
+      icon: Icon(Icons.share, size: _iconSize),
+    );
+  }
+
+  Widget _buildDateTime() {
+    return TextFactory.buildNormalText4(
+      Helpers.timeAgo(_generateDateTime()),
+      color: ColorsFactory.secondaryText,
+    );
+  }
+
+  void _viewTips() {}
+
   int _generateTipsNumber() {
     return Random().nextInt(20) + 1;
+  }
+
+  int _generateRepost() {
+    return Random().nextInt(1000) + 1;
+  }
+
+  double _generateRate() {
+    return Random().nextDouble() * 5;
   }
 
   DateTime _generateDateTime() {
@@ -90,4 +136,6 @@ class TipCard extends StatelessWidget {
     final randomDuration = Duration(hours: randomHours);
     return DateTime.now().subtract(randomDuration);
   }
+
+  void _share() {}
 }
