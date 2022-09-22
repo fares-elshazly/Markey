@@ -14,7 +14,7 @@ class CommunityScreen extends StatelessWidget {
 
   final _bodyHorizontalMargin = 15.0;
   final _contentMargin = 10.0;
-  final _internalMargin = 5.0;
+  final _internalMargin = 10.0;
 
   @override
   Widget build(BuildContext context) {
