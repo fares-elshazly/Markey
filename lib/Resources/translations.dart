@@ -72,6 +72,11 @@ class MRKTranslations extends Translations {
 
         MRKStrings.communityTitle: 'Community',
 
+        MRKStrings.businessCardAbout: 'About',
+        MRKStrings.businessCardOffer: 'Special Offers For Markey Community',
+        MRKStrings.businessCardReviewTitle: 'Have You Tried This Place?',
+        MRKStrings.businessCardReviewSubmit: 'Submit Your Review',
+
         MRKStrings.mallTitle: 'Mall',
         MRKStrings.mallServices: 'Services',
         MRKStrings.mallShops: 'Shops',
