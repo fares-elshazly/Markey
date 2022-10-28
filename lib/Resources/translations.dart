@@ -47,6 +47,7 @@ class MRKTranslations extends Translations {
         MRKStrings.homeDrawerWallet: 'Wallet',
         MRKStrings.homeDrawerSettings: 'Settings',
         MRKStrings.homeDrawerSupport: 'Support',
+        MRKStrings.homeDrawerLogout: 'Logout',
 
         MRKStrings.profileTitle: 'Profile',
         MRKStrings.profileStatsRate: 'Rating',
