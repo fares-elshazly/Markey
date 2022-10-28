@@ -46,6 +46,7 @@ abstract class MRKStrings {
   static const homeDrawerWallet = 'home.drawer.wallet';
   static const homeDrawerSettings = 'home.drawer.settings';
   static const homeDrawerSupport = 'home.drawer.support';
+  static const homeDrawerLogout = 'home.drawer.logout';
 
   // * Profile Screen
   static const profileTitle = 'profile.title';
