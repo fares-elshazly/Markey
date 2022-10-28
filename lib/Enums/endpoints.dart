@@ -1,4 +1,10 @@
 abstract class Endpoints {
+  // * Authentication Endpoints
+  static const register = 'register';
+  static const login = 'login';
+  static const logout = 'logout';
+  static const profile = 'users';
+
   // * Tags Endpoints
   static const tags = 'tags';
 }
