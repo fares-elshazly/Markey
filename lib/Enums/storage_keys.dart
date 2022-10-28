@@ -1,1 +1,3 @@
-abstract class StorageKeys {}
+abstract class StorageKeys {
+  static const user = 'user';
+}
