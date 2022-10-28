@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
+import '/Screens/Shared/splash.dart';
 import '/Screens/Profile/profile.dart';
 import '/Screens/Chat/chat.dart';
 import '/Screens/Settings/settings.dart';
@@ -10,6 +11,7 @@ import '/Widgets/Shared/avatar.dart';
 import '/Resources/strings.dart';
 import '/Factories/text_factory.dart';
 import '/Factories/colors_factory.dart';
+import '/Controllers/authentication_controller.dart';
 
 class HomeDrawer extends StatelessWidget {
   const HomeDrawer({Key? key}) : super(key: key);
@@ -41,6 +43,7 @@ class HomeDrawer extends StatelessWidget {
         _buildWallet(),
         _buildSettings(),
         _buildSupport(),
+        _buildLogout(),
       ],
     );
   }
@@ -114,6 +117,14 @@ class HomeDrawer extends StatelessWidget {
     );
   }
 
+  Widget _buildLogout() {
+    return _buildTile(
+      Icons.logout,
+      MRKStrings.homeDrawerLogout,
+      _logout,
+    );
+  }
+
   Widget _buildTile(IconData icon, String label, VoidCallback behavior) {
     return ListTile(
       onTap: behavior,
@@ -124,5 +135,10 @@ class HomeDrawer extends StatelessWidget {
         color: ColorsFactory.primary,
       ),
     );
+  }
+
+  Future<void> _logout() async {
+    await Get.find<AuthenticationController>().logout();
+    Get.offAllNamed(SplashScreen.routeName);
   }
 }
