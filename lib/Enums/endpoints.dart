@@ -1,1 +1,4 @@
-abstract class Endpoints {}
+abstract class Endpoints {
+  // * Tags Endpoints
+  static const tags = 'tags';
+}
