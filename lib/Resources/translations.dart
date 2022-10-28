@@ -7,7 +7,7 @@ class MRKTranslations extends Translations {
   Map<String, Map<String, String>> get keys {
     return {
       'en': {
-        MRKStrings.loginUsername: 'Username',
+        MRKStrings.loginUsername: 'Email',
         MRKStrings.loginPassword: 'Password',
         MRKStrings.loginForgotPassword: 'Forgot password?',
         MRKStrings.loginSubmit: 'Sign In',
