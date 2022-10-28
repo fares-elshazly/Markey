@@ -15,11 +15,18 @@ import '/Factories/text_factory.dart';
 import '/Factories/colors_factory.dart';
 import '/Utilities/helpers.dart';
 import '/Utilities/validator.dart';
+import '/Utilities/progress_indicator.dart';
+import '/Utilities/snackbars.dart';
+import '/DTOs/Authentication/login.dart';
+import '/Models/Shared/message_exception.dart';
+import '/Controllers/authentication_controller.dart';
 
 class LoginScreen extends StatelessWidget {
   static const routeName = '/Login';
 
   LoginScreen({Key? key}) : super(key: key);
+
+  final _authController = Get.find<AuthenticationController>();
 
   final _formKey = GlobalKey<FormState>();
   final _usernameController = TextEditingController();
@@ -168,8 +175,24 @@ class LoginScreen extends StatelessWidget {
     Get.toNamed(ForgotPasswordScreen.routeName);
   }
 
-  void _submit() {
-    Get.toNamed(HomeScreen.routeName);
+  Future<void> _submit() async {
+    if (!_formKey.currentState!.validate()) return;
+    ProgressIndicators.loadingDialog();
+    try {
+      final dto = _generateDTO();
+      await _authController.login(dto);
+      Get.offAllNamed(HomeScreen.routeName);
+    } on MessageException catch (error) {
+      Get.back();
+      Snackbars.danger(error.message);
+    }
+  }
+
+  LoginDTO _generateDTO() {
+    return LoginDTO(
+      email: _usernameController.text,
+      password: _passwordController.text,
+    );
   }
 
   void _register() {
