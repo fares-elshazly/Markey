@@ -11,9 +11,16 @@ abstract class MRKStrings {
   static const registerTitle = 'register.title';
   static const registerUsername = 'register.username';
   static const registerName = 'register.name';
+  static const registerEmail = 'register.email';
   static const registerPassword = 'register.password';
   static const registerConfirmPassword = 'register.confirm.password';
+  static const registerReferral = 'register.referral';
   static const registerSubmit = 'register.submit';
+
+  // * Register Tags Screen
+  static const registerTagsTitle = 'register.tags.title';
+  static const registerTagsSubtitle = 'register.tags.subtitle';
+  static const registerTagsSubmit = 'register.tags.submit';
 
   // * Forgot Password Screen
   static const forgotPasswordTitle = 'forgot.password.title';
