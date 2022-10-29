@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '/Screens/Authentication/register_tags.dart';
 import '/Widgets/Shared/back_app_bar.dart';
 import '/Widgets/Shared/background.dart';
 import '/Widgets/Shared/custom_text_field.dart';
 import '/Widgets/Shared/submit_button.dart';
-import '/Widgets/Authentication/social_buttons.dart';
 import '/Resources/strings.dart';
 import '/Resources/images.dart';
 import '/Factories/colors_factory.dart';
 import '/Utilities/helpers.dart';
 import '/Utilities/validator.dart';
+import '/DTOs/Authentication/register.dart';
 
 class RegisterScreen extends StatelessWidget {
   static const routeName = '/Register';
@@ -19,11 +21,13 @@ class RegisterScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   final _usernameController = TextEditingController();
   final _nameController = TextEditingController();
+  final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
+  final _referralController = TextEditingController();
 
   final _bodyHorizontalMargin = 15.0;
-  final _bodyVerticalMargin = 15.0;
+  final _bodyVerticalMargin = 30.0;
   final _contentMargin = 20.0;
   final _internalMargin = 15.0;
 
@@ -69,8 +73,6 @@ class RegisterScreen extends StatelessWidget {
           _buildLogo(),
           SizedBox(height: _contentMargin),
           _buildForm(),
-          SizedBox(height: _contentMargin * 1.5),
-          _buildSocialButtons(),
           SizedBox(height: _bodyVerticalMargin),
         ],
       ),
@@ -101,9 +103,13 @@ class RegisterScreen extends StatelessWidget {
         SizedBox(height: _internalMargin),
         _buildNameField(),
         SizedBox(height: _internalMargin),
+        _buildEmailField(),
+        SizedBox(height: _internalMargin),
         _buildPasswordField(),
         SizedBox(height: _internalMargin),
         _buildConfirmPasswordField(),
+        SizedBox(height: _internalMargin),
+        _buildReferralField(),
         SizedBox(height: _internalMargin * 2),
         _buildSubmit(),
       ],
@@ -126,12 +132,20 @@ class RegisterScreen extends StatelessWidget {
     );
   }
 
+  Widget _buildEmailField() {
+    return CustomTextField(
+      hint: MRKStrings.registerEmail,
+      controller: _emailController,
+      validator: Validator.isEmail,
+    );
+  }
+
   Widget _buildPasswordField() {
     return CustomTextField(
       hint: MRKStrings.registerPassword,
       controller: _passwordController,
       obscured: true,
-      validator: Validator.isNotEmpty,
+      validator: Validator.isValidPassword,
     );
   }
 
@@ -140,7 +154,14 @@ class RegisterScreen extends StatelessWidget {
       hint: MRKStrings.registerConfirmPassword,
       controller: _confirmPasswordController,
       obscured: true,
-      validator: Validator.isNotEmpty,
+      validator: (value) => Validator.isMatchingPassword(value, _passwordController.text),
+    );
+  }
+
+  Widget _buildReferralField() {
+    return CustomTextField(
+      hint: MRKStrings.registerReferral,
+      controller: _referralController,
     );
   }
 
@@ -151,9 +172,19 @@ class RegisterScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildSocialButtons() {
-    return const SocialButtons();
+  void _submit() {
+    if (!_formKey.currentState!.validate()) return;
+    final dto = _generateDTO();
+    Get.toNamed(RegisterTagsScreen.routeName, arguments: dto);
   }
 
-  void _submit() {}
+  RegisterDTO _generateDTO() {
+    return RegisterDTO(
+      username: _usernameController.text,
+      name: _nameController.text,
+      email: _emailController.text,
+      password: _passwordController.text,
+      referralCode: _referralController.text,
+    );
+  }
 }
