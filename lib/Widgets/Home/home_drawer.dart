@@ -14,7 +14,9 @@ import '/Factories/colors_factory.dart';
 import '/Controllers/authentication_controller.dart';
 
 class HomeDrawer extends StatelessWidget {
-  const HomeDrawer({Key? key}) : super(key: key);
+  HomeDrawer({Key? key}) : super(key: key);
+
+  final _authController = Get.find<AuthenticationController>();
 
   final _contentMargin = 15.0;
 
@@ -138,7 +140,7 @@ class HomeDrawer extends StatelessWidget {
   }
 
   Future<void> _logout() async {
-    await Get.find<AuthenticationController>().logout();
+    await _authController.logout();
     Get.offAllNamed(SplashScreen.routeName);
   }
 }
