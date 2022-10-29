@@ -17,9 +17,15 @@ class MRKTranslations extends Translations {
         MRKStrings.registerTitle: 'Sign Up',
         MRKStrings.registerUsername: 'Username',
         MRKStrings.registerName: 'Full Name',
+        MRKStrings.registerEmail: 'Email',
         MRKStrings.registerPassword: 'Password',
         MRKStrings.registerConfirmPassword: 'Confirm Password',
-        MRKStrings.registerSubmit: 'Sign Up',
+        MRKStrings.registerReferral: 'Referral Code',
+        MRKStrings.registerSubmit: 'Continue',
+
+        MRKStrings.registerTagsTitle: 'Interests',
+        MRKStrings.registerTagsSubtitle: 'Select At Least One Interest',
+        MRKStrings.registerTagsSubmit: 'Sign Up',
 
         MRKStrings.forgotPasswordTitle: 'Forgot Password',
         MRKStrings.forgotPasswordSubtitle: 'Please enter the username that you\'ve used to sign up',
@@ -89,7 +95,7 @@ class MRKTranslations extends Translations {
         MRKStrings.errorTitle: 'Something went wrong!',
         MRKStrings.emptyError: 'This field is required',
         MRKStrings.emailError: 'Invalid email address',
-        MRKStrings.passwordError: 'Invalid password min 6 digits',
+        MRKStrings.passwordError: 'Invalid password min 8 digits, contains upper-case',
         MRKStrings.passwordMatchError: 'Your password and confirmation password do not match',
       },
       'ar': {
