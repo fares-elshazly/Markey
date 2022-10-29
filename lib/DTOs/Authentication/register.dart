@@ -4,7 +4,7 @@ class RegisterDTO {
   final String email;
   final String password;
   final String referralCode;
-  final List<int>? tagsIds;
+  final List<int> tagsIds;
 
   RegisterDTO({
     required this.username,
@@ -12,7 +12,7 @@ class RegisterDTO {
     required this.email,
     required this.password,
     required this.referralCode,
-    this.tagsIds,
+    required this.tagsIds,
   });
 
   Map<String, dynamic> toJson() => {
