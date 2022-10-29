@@ -185,6 +185,7 @@ class RegisterScreen extends StatelessWidget {
       email: _emailController.text,
       password: _passwordController.text,
       referralCode: _referralController.text,
+      tagsIds: [],
     );
   }
 }
