@@ -6,10 +6,12 @@ import '/Factories/colors_factory.dart';
 class SubmitButton extends StatelessWidget {
   final String label;
   final VoidCallback behaviour;
+  final bool isEnabled;
 
   const SubmitButton({
     required this.label,
     required this.behaviour,
+    this.isEnabled = true,
     Key? key,
   }) : super(key: key);
 
@@ -19,7 +21,7 @@ class SubmitButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: behaviour,
+      onPressed: isEnabled ? behaviour : null,
       style: _buildStyle(context),
       child: _buildContent(context),
     );
@@ -46,8 +48,9 @@ class SubmitButton extends StatelessWidget {
 
   BoxDecoration _buildDecoration() {
     return BoxDecoration(
+      color: isEnabled ? null : ColorsFactory.disabled,
       borderRadius: BorderRadius.circular(_borderRadius),
-      gradient: _buildGradient(),
+      gradient: isEnabled ? _buildGradient() : null,
     );
   }
 
