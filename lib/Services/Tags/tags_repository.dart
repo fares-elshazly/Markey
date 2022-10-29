@@ -11,8 +11,9 @@ class TagsRepository {
     _tagsService = TagsService.create();
   }
 
-  Future<TagsList> tags({PaginationDTO? dto}) async {
-    final response = await _tagsService.tags(pagination: dto?.toJson());
+  Future<TagsList> tags(PaginationDTO dto) async {
+    final pagination = dto.toJson();
+    final response = await _tagsService.tags(pagination: pagination);
     try {
       final tags = TagsList.fromJson(response.body);
       return tags;
