@@ -15,14 +15,13 @@ class TagsController extends GetxController {
     _repository = TagsRepository();
   }
 
-  Future<TagsList?> getTagsList({PaginationDTO? dto}) async {
+  Future<TagsList?> getTagsList(PaginationDTO dto) async {
     try {
-      final tagsList = await _repository.tags(dto: dto);
-      if (dto == null || dto.currentPage == 1) {
-        _tagsList.value = tagsList;
-        return _tagsList.value;
+      final tagsList = await _repository.tags(dto);
+      if (dto.page > 1) {
+        tagsList.tags.insertAll(0, _tagsList.value?.tags ?? []);
       }
-      _tagsList.value?.tags.addAll(tagsList.tags);
+      _tagsList.value = tagsList;
       return _tagsList.value;
     } catch (error) {
       rethrow;
