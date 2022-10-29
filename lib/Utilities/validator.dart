@@ -21,4 +21,11 @@ abstract class Validator {
     if (!checkLength || !checkUpperCase) return MRKStrings.passwordError.tr;
     return null;
   }
+
+  static String? isMatchingPassword(String? value, String? password) {
+    if (value == null || password == null) return MRKStrings.passwordMatchError.tr;
+    if (value.isEmpty) return MRKStrings.emptyError.tr;
+    if (value != password) return MRKStrings.passwordMatchError.tr;
+    return null;
+  }
 }
