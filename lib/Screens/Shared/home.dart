@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const HomeDrawer(),
+      drawer: HomeDrawer(),
       body: _buildBody(context),
       bottomNavigationBar: const HomeBottomBar(),
       floatingActionButton: const HomeFAB(),
