@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '/Screens/Community/add_community.dart';
 import '/Widgets/Shared/back_app_bar.dart';
 import '/Widgets/Shared/search_field.dart';
 import '/Widgets/Community/business_card.dart';
@@ -43,6 +44,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
     return Scaffold(
       appBar: _buildAppBar(),
       body: _buildBody(),
+      floatingActionButton: _buildFAB(),
     );
   }
 
@@ -125,6 +127,14 @@ class _CommunityScreenState extends State<CommunityScreen> {
     );
   }
 
+  Widget _buildFAB() {
+    return FloatingActionButton(
+      backgroundColor: ColorsFactory.primary,
+      onPressed: _addCommunity,
+      child: const Icon(Icons.add),
+    );
+  }
+
   Future<void> _loadData() async {
     final dto = _generatePaginationDTO();
     await _communityController.getCommunityList(dto);
@@ -151,5 +161,9 @@ class _CommunityScreenState extends State<CommunityScreen> {
     _currentPage++;
     await _loadData();
     setState(() => _isLoadingMore = false);
+  }
+
+  void _addCommunity() {
+    Get.toNamed(AddCommunityScreen.routeName);
   }
 }
