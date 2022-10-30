@@ -33,6 +33,7 @@ class CommunityController extends GetxController {
   Future<bool> addCommunity(AddCommunityDTO dto) async {
     try {
       final isSuccess = await _repository.addCommunity(dto);
+      await getCommunityList(PaginationDTO(page: 1));
       return isSuccess;
     } catch (error) {
       rethrow;
