@@ -84,6 +84,10 @@ class MRKTranslations extends Translations {
         MRKStrings.businessCardReviewTitle: 'Have You Tried This Place?',
         MRKStrings.businessCardReviewSubmit: 'Submit Your Review',
 
+        MRKStrings.businessRatingTitle: 'Reviewing %s',
+        MRKStrings.businessRatingDescription: 'Tap a star to set your rating',
+        MRKStrings.businessRatingSubmit: 'Submit Your Review',
+
         MRKStrings.mallTitle: 'Mall',
         MRKStrings.mallServices: 'Services',
         MRKStrings.mallShops: 'Shops',
