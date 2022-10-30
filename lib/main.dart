@@ -16,6 +16,7 @@ import 'Screens/Authentication/reset_password.dart';
 import 'Screens/Tipsters/tipsters.dart';
 
 import 'Screens/Community/community.dart';
+import 'Screens/Community/add_community.dart';
 
 import 'Screens/Mall/mall.dart';
 
@@ -96,6 +97,7 @@ class MyApp extends StatelessWidget {
 
       // * Community Screens
       GetPage(name: CommunityScreen.routeName, page: () => const CommunityScreen()),
+      GetPage(name: AddCommunityScreen.routeName, page: () => AddCommunityScreen()),
 
       // * Mall Screens
       GetPage(name: MallScreen.routeName, page: () => const MallScreen()),
