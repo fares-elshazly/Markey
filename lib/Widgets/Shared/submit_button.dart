@@ -15,6 +15,7 @@ class SubmitButton extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
+  final _height = 50.0;
   final _padding = 15.0;
   final _borderRadius = 8.0;
 
@@ -40,6 +41,7 @@ class SubmitButton extends StatelessWidget {
   Widget _buildContent(BuildContext context) {
     return Ink(
       width: MediaQuery.of(context).size.width,
+      height: _height,
       padding: EdgeInsets.all(_padding),
       decoration: _buildDecoration(),
       child: Center(child: _buildLabel()),
