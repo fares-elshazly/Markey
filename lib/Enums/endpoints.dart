@@ -7,4 +7,9 @@ abstract class Endpoints {
 
   // * Tags Endpoints
   static const tags = 'tags';
+
+  // * Community Endpoints
+  static const communities = 'communities';
+  static const addCommunity = 'communities';
+  static const rateCommunity = 'communities/rate';
 }
