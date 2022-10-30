@@ -85,6 +85,14 @@ abstract class MRKStrings {
   // * Community Screen
   static const communityTitle = 'community.title';
 
+  // * Add Community Screen
+  static const addCommunityTitle = 'add.community.title';
+  static const addCommunityName = 'add.community.name';
+  static const addCommunitySubtitle = 'add.community.subtitle';
+  static const addCommunityDescription = 'add.community.description';
+  static const addCommunityOffer = 'add.community.offer';
+  static const addCommunitySubmit = 'add.community.submit';
+
   // * Business Card Widget
   static const businessCardAbout = 'business.card.about';
   static const businessCardOffer = 'business.card.offer';
