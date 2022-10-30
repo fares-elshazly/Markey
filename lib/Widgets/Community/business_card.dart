@@ -1,25 +1,18 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '/Widgets/Shared/avatar.dart';
 import '/Widgets/Shared/submit_button.dart';
+import '/Widgets/Community/business_rate.dart';
 import '/Resources/strings.dart';
-import '/Resources/images.dart';
 import '/Factories/text_factory.dart';
 import '/Factories/colors_factory.dart';
+import '/Models/Community/community.dart';
 
 class BusinessCard extends StatelessWidget {
-  final int index;
+  final Community community;
 
-  const BusinessCard({required this.index, Key? key}) : super(key: key);
-
-  final _images = const [
-    MRKImages.shop1,
-    MRKImages.shop2,
-    MRKImages.shop3,
-    MRKImages.shop4,
-    MRKImages.shop5,
-  ];
+  const BusinessCard({required this.community, Key? key}) : super(key: key);
 
   final _borderRadius = 8.0;
   final _padding = 10.0;
@@ -105,7 +98,7 @@ class BusinessCard extends StatelessWidget {
 
   Widget _buildName() {
     return TextFactory.buildNormalText2(
-      'Moon Travel',
+      community.title,
       weight: FontWeights.medium,
     );
   }
@@ -122,7 +115,7 @@ class BusinessCard extends StatelessWidget {
 
   Widget _buildType() {
     return TextFactory.buildNormalText4(
-      'Travelling Agency',
+      community.subtitle,
       color: ColorsFactory.secondaryText,
     );
   }
@@ -132,15 +125,13 @@ class BusinessCard extends StatelessWidget {
       children: [
         Icon(Icons.star, size: _iconSize, color: ColorsFactory.rate),
         SizedBox(width: _textMargin),
-        TextFactory.buildNormalText4(_generateRate().toStringAsFixed(1)),
+        TextFactory.buildNormalText4('${community.rate}'),
       ],
     );
   }
 
   Widget _buildImage() {
-    return CircleAvatar(
-      foregroundImage: AssetImage(_images[index % _images.length]),
-    );
+    return const Avatar();
   }
 
   Widget _buildAbout() {
@@ -155,9 +146,7 @@ class BusinessCard extends StatelessWidget {
   }
 
   Widget _buildAboutContent() {
-    return TextFactory.buildNormalText4(
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt lectus vel diam maximus, nec molestie ipsum blandit. Vivamus tincidunt tortor eu urna mollis, sed blandit lectus vestibulum. Praesent ac dolor sit amet mi facilisis tincidunt a ut mauris. Nulla cursus sapien velit. Donec quam velit, ultricies non scelerisque sit amet, tincidunt vitae nibh.',
-    );
+    return TextFactory.buildNormalText4(community.description);
   }
 
   Widget _buildOffer() {
@@ -172,9 +161,7 @@ class BusinessCard extends StatelessWidget {
   }
 
   Widget _buildOfferContent() {
-    return TextFactory.buildNormalText4(
-      '5% Discount on all flights',
-    );
+    return TextFactory.buildNormalText4(community.offer);
   }
 
   Widget _buildReview() {
@@ -206,9 +193,7 @@ class BusinessCard extends StatelessWidget {
     );
   }
 
-  double _generateRate() {
-    return Random().nextDouble() * 5;
+  void _submitReview() {
+    Get.dialog(BusinessRating(community: community));
   }
-
-  void _submitReview() {}
 }
