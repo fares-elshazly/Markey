@@ -24,7 +24,7 @@ class Avatar extends StatelessWidget {
   }
 
   Widget _buildPlaceholder() {
-    return Image.asset(MRKImages.avatar, fit: BoxFit.cover);
+    return Image.asset(MRKImages.avatar, fit: BoxFit.scaleDown);
   }
 
   Widget _buildNetworkImage() {
