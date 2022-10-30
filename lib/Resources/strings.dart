@@ -91,6 +91,11 @@ abstract class MRKStrings {
   static const businessCardReviewTitle = 'business.card.review.title';
   static const businessCardReviewSubmit = 'business.card.review.submit';
 
+  // * Business Rating Dialog
+  static const businessRatingTitle = 'business.rating.title';
+  static const businessRatingDescription = 'business.rating.description';
+  static const businessRatingSubmit = 'business.rating.submit';
+
   // * Mall Screen
   static const mallTitle = 'mall.title';
   static const mallServices = 'mall.services';
