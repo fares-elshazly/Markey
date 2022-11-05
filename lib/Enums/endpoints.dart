@@ -12,4 +12,8 @@ abstract class Endpoints {
   static const communities = 'communities';
   static const addCommunity = 'communities';
   static const rateCommunity = 'communities/rate';
+
+  // * Tips Endpoints
+  static const tips = 'tips';
+  static const addTip = 'tips';
 }
