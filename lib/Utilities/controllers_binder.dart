@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '/Controllers/authentication_controller.dart';
 import '/Controllers/tags_controller.dart';
 import '/Controllers/community_controller.dart';
+import '/Controllers/tips_controller.dart';
 
 class ControllersBinder implements Bindings {
   @override
@@ -10,5 +11,6 @@ class ControllersBinder implements Bindings {
     Get.put(AuthenticationController());
     Get.put(TagsController());
     Get.put(CommunityController());
+    Get.put(TipsController());
   }
 }
