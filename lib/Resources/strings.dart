@@ -82,6 +82,18 @@ abstract class MRKStrings {
   // * Tips Screen
   static const tipsTitle = 'tips.title';
 
+  // * Add Tip Screen
+  static const addTipTitle = 'add.tip.title';
+  static const addTipName = 'add.tip.name';
+  static const addTipContent = 'add.tip.content';
+  static const addTipTags = 'add.tip.tags';
+  static const addTipSubmit = 'add.tip.submit';
+
+  // * Tip Rating Dialog
+  static const tipRatingTitle = 'tip.rating.title';
+  static const tipRatingDescription = 'tip.rating.description';
+  static const tipRatingSubmit = 'tip.rating.submit';
+
   // * Community Screen
   static const communityTitle = 'community.title';
 
