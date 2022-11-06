@@ -14,6 +14,8 @@ import 'Screens/Authentication/verify_code.dart';
 import 'Screens/Authentication/reset_password.dart';
 
 import 'Screens/Tipsters/tipsters.dart';
+import 'Screens/Tipsters/tip_details.dart';
+import 'Screens/Tipsters/add_tip.dart';
 
 import 'Screens/Community/community.dart';
 import 'Screens/Community/add_community.dart';
@@ -94,6 +96,8 @@ class MyApp extends StatelessWidget {
 
       // * Tipsters Screens
       GetPage(name: TipstersScreen.routeName, page: () => const TipstersScreen()),
+      GetPage(name: TipDetailsScreen.routeName, page: () => const TipDetailsScreen()),
+      GetPage(name: AddTipScreen.routeName, page: () => const AddTipScreen()),
 
       // * Community Screens
       GetPage(name: CommunityScreen.routeName, page: () => const CommunityScreen()),
