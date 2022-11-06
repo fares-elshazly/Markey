@@ -16,4 +16,8 @@ abstract class Endpoints {
   // * Tips Endpoints
   static const tips = 'tips';
   static const addTip = 'tips';
+  static const updateTip = 'tips/{id}';
+  static const rateTip = 'tips/rate';
+  static const spreadTip = 'tips/spread';
+  static const reportTip = 'tips/report';
 }
