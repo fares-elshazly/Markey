@@ -43,7 +43,7 @@ class AddCommunityScreen extends StatelessWidget {
 
   PreferredSizeWidget _buildAppBar() {
     return const BackAppBar(
-      title: MRKStrings.communityTitle,
+      title: MRKStrings.addCommunityTitle,
       backgroundColor: ColorsFactory.background,
     );
   }
