@@ -2,7 +2,7 @@ class PaginationDTO {
   final int page;
   final int? perPage;
 
-  PaginationDTO({required this.page, this.perPage});
+  PaginationDTO({this.page = 1, this.perPage});
 
   Map<String, dynamic> toJson() => {
         "page": page,
