@@ -77,6 +77,16 @@ class MRKTranslations extends Translations {
 
         MRKStrings.tipsTitle: 'Tipsters',
 
+        MRKStrings.addTipTitle: 'Create Tip',
+        MRKStrings.addTipName: 'Tip Title',
+        MRKStrings.addTipContent: 'Tip Content',
+        MRKStrings.addTipTags: 'Tip Tags',
+        MRKStrings.addTipSubmit: 'Create',
+
+        MRKStrings.tipRatingTitle: 'Reviewing %s',
+        MRKStrings.tipRatingDescription: 'Tap a star to set your rating',
+        MRKStrings.tipRatingSubmit: 'Submit Your Review',
+
         MRKStrings.communityTitle: 'Community',
 
         MRKStrings.addCommunityTitle: 'Create Community Business',
