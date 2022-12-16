@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '/Widgets/Shared/avatar.dart';
 import '/Resources/strings.dart';
 import '/Factories/text_factory.dart';
+import '/Controllers/authentication_controller.dart';
 
 class Greeting extends StatelessWidget {
-  const Greeting({Key? key}) : super(key: key);
+  Greeting({Key? key}) : super(key: key);
+
+  final _profile = Get.find<AuthenticationController>().profile.value;
 
   final _contentMargin = 10.0;
   final _internalMargin = 5.0;
@@ -47,13 +51,13 @@ class Greeting extends StatelessWidget {
 
   Widget _buildName() {
     return TextFactory.buildNormalText1(
-      'Jack Sparrow',
+      '${_profile?.name}',
       weight: FontWeights.medium,
     );
   }
 
   Widget _buildAvatar() {
-    return const Avatar();
+    return Avatar(url: _profile?.avatar);
   }
 
   void _openDrawer(BuildContext context) {

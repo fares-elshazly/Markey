@@ -17,6 +17,7 @@ class HomeDrawer extends StatelessWidget {
   HomeDrawer({Key? key}) : super(key: key);
 
   final _authController = Get.find<AuthenticationController>();
+  final _profile = Get.find<AuthenticationController>().profile.value;
 
   final _contentMargin = 15.0;
 
@@ -68,12 +69,12 @@ class HomeDrawer extends StatelessWidget {
   }
 
   Widget _buildAvatar() {
-    return const Avatar();
+    return Avatar(url: _profile?.avatar);
   }
 
   Widget _buildName() {
     return TextFactory.buildNormalText2(
-      'Jack Sparrow',
+      '${_profile?.name}',
       weight: FontWeights.medium,
       color: ColorsFactory.primary,
     );
