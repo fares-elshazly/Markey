@@ -15,6 +15,7 @@ import '/DTOs/Shared/pagination.dart';
 import '/DTOs/Tips/add_tip.dart';
 import '/Models/Tags/tag.dart';
 import '/Models/Shared/message_exception.dart';
+import '/Controllers/authentication_controller.dart';
 import '/Controllers/tips_controller.dart';
 import '/Controllers/tags_controller.dart';
 
@@ -33,6 +34,7 @@ class _AddTipScreenState extends State<AddTipScreen> {
 
   final List<Tag> _selectedTags = [];
 
+  final _authController = Get.find<AuthenticationController>();
   final _tipsController = Get.find<TipsController>();
   final _tagsController = Get.find<TagsController>();
   final _tags = Get.find<TagsController>().tagsList;
@@ -253,6 +255,7 @@ class _AddTipScreenState extends State<AddTipScreen> {
     try {
       final dto = _generateDTO();
       await _tipsController.addTip(dto);
+      await _authController.getProfile();
       Get.back();
       Get.back();
     } on MessageException catch (error) {
