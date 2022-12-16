@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import '/Widgets/Shared/cached_image.dart';
-import '/Models/Profile/previous_work.dart';
+import '/Models/Profile/certificate.dart';
 
-class Portfolio extends StatelessWidget {
-  final List<PreviousWork> previousWorks;
+class Certificates extends StatelessWidget {
+  final List<Certificate> certificates;
 
-  const Portfolio({required this.previousWorks, Key? key}) : super(key: key);
+  const Certificates({required this.certificates, Key? key}) : super(key: key);
 
   final _crossAxisCount = 2;
   final _mainAxisSpacing = 20.0;
@@ -19,23 +19,23 @@ class Portfolio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlignedGridView.count(
-      itemCount: previousWorks.length,
+      itemCount: certificates.length,
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       crossAxisCount: _crossAxisCount,
       mainAxisSpacing: _mainAxisSpacing,
       crossAxisSpacing: _crossAxisSpacing,
       itemBuilder: (BuildContext context, int index) {
-        return _buildImage(previousWorks[index]);
+        return _buildImage(certificates[index]);
       },
     );
   }
 
-  Widget _buildImage(PreviousWork work) {
+  Widget _buildImage(Certificate certificate) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(_borderRadius),
       child: CachedImage(
-        url: work.image,
+        url: certificate.image,
         width: double.infinity,
         height: _imageHeight,
         fit: BoxFit.cover,

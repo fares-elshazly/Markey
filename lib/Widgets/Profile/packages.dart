@@ -1,52 +1,44 @@
 import 'package:flutter/material.dart';
 
-import '/Resources/images.dart';
 import '/Factories/text_factory.dart';
 import '/Factories/colors_factory.dart';
+import '/Models/Profile/package.dart';
 
 class Packages extends StatelessWidget {
-  const Packages({Key? key}) : super(key: key);
+  final List<Package> packages;
+
+  const Packages({required this.packages, Key? key}) : super(key: key);
 
   final _internalMargin = 5.0;
   final _borderRadius = 8.0;
-  final _thumbSide = 60.0;
-
-  final _images = const [
-    MRKImages.shop1,
-    MRKImages.shop2,
-    MRKImages.shop3,
-    MRKImages.shop4,
-    MRKImages.shop5,
-  ];
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: 10,
+      itemCount: packages.length,
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (BuildContext context, int index) {
-        return _buildPackageCard(index);
+        return _buildPackageCard(packages[index]);
       },
     );
   }
 
-  Widget _buildPackageCard(int index) {
+  Widget _buildPackageCard(Package package) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: _internalMargin),
-      child: _buildPackageCardContent(index),
+      child: _buildPackageCardContent(package),
     );
   }
 
-  Widget _buildPackageCardContent(int index) {
+  Widget _buildPackageCardContent(Package package) {
     return ListTile(
       isThreeLine: true,
       tileColor: ColorsFactory.secondary,
       shape: _buildShape(),
-      leading: _buildThumbnail(index),
-      title: _buildTitle(),
-      subtitle: _buildDescription(),
-      trailing: _buildPrice(),
+      title: _buildTitle(package.title),
+      subtitle: _buildDescription(package.description),
+      trailing: _buildPrice(package.cost),
     );
   }
 
@@ -56,33 +48,21 @@ class Packages extends StatelessWidget {
     );
   }
 
-  Widget _buildThumbnail(int index) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(_borderRadius),
-      child: Image.asset(
-        _images[index % _images.length],
-        width: _thumbSide,
-        height: _thumbSide,
-        fit: BoxFit.cover,
-      ),
-    );
-  }
-
-  Widget _buildTitle() {
+  Widget _buildTitle(String title) {
     return TextFactory.buildNormalText3(
-      'Logo Design',
+      title,
       weight: FontWeights.medium,
     );
   }
 
-  Widget _buildDescription() {
+  Widget _buildDescription(String description) {
     return TextFactory.buildNormalText4(
-      'Design a modern and graphic logo from scratch',
+      description,
       color: ColorsFactory.secondaryText,
     );
   }
 
-  Widget _buildPrice() {
-    return TextFactory.buildNormalText4('500\$');
+  Widget _buildPrice(double price) {
+    return TextFactory.buildNormalText4('$price £');
   }
 }
