@@ -69,13 +69,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
       validator: widget.validator,
       keyboardType: widget.keyboard,
       inputFormatters: widget.formatters,
-      style: _buildTextStyle(),
+      style: _buildTextStyle(color: ColorsFactory.text),
       decoration: _buildDecoration(context),
     );
-  }
-
-  TextStyle _buildTextStyle() {
-    return TextFactory.buildStyle(color: ColorsFactory.secondaryText);
   }
 
   InputDecoration _buildDecoration(BuildContext context) {
@@ -91,6 +87,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
       focusedErrorBorder: _buildBorder(ColorsFactory.danger),
       suffixIcon: widget.suffix ?? _buildObscureButton(),
     );
+  }
+
+  TextStyle _buildTextStyle({Color color = ColorsFactory.secondaryText}) {
+    return TextFactory.buildStyle(color: color);
   }
 
   OutlineInputBorder _buildBorder(Color color) {
