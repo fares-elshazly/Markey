@@ -62,6 +62,14 @@ abstract class MRKStrings {
   static const profilePackages = 'profile.services';
   static const profileTips = 'profile.tips';
 
+  // * Add Package Screen
+  static const addPackageTitle = 'add.package.title';
+  static const addPackageSubtitle = 'add.package.subtitle';
+  static const addPackageDescription = 'add.package.description';
+  static const addPackageCost = 'add.package.cost';
+  static const addPackageDuration = 'add.package.duration';
+  static const addPackageSubmit = 'add.package.submit';
+
   // * Chat Screen
   static const chatTitle = 'chat.title';
 
