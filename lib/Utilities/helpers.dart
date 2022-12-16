@@ -1,8 +1,11 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:logging/logging.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'package:intl/intl.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:image_cropper/image_cropper.dart';
 
 abstract class Helpers {
   static const _placeHolder = '-';
@@ -41,5 +44,14 @@ abstract class Helpers {
   static String formatTime(DateTime? dateTime) {
     if (dateTime == null) return _placeHolder;
     return DateFormat.jm().format(dateTime);
+  }
+
+  static Future<File?> selectImage() async {
+    final selected = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (selected == null) return null;
+    final path = selected.path;
+    final cropped = await ImageCropper().cropImage(sourcePath: path);
+    if (cropped == null) return null;
+    return File(cropped.path);
   }
 }
