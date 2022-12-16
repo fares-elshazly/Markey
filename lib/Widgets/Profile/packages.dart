@@ -37,7 +37,7 @@ class Packages extends StatelessWidget {
       tileColor: ColorsFactory.secondary,
       shape: _buildShape(),
       title: _buildTitle(package.title),
-      subtitle: _buildDescription(package.description),
+      subtitle: _buildInfo(package),
       trailing: _buildPrice(package.cost),
     );
   }
@@ -55,9 +55,27 @@ class Packages extends StatelessWidget {
     );
   }
 
+  Widget _buildInfo(Package package) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _buildDescription(package.description),
+        SizedBox(height: _internalMargin),
+        _buildDuration(package.duration),
+      ],
+    );
+  }
+
   Widget _buildDescription(String description) {
     return TextFactory.buildNormalText4(
       description,
+      color: ColorsFactory.secondaryText,
+    );
+  }
+
+  Widget _buildDuration(int duration) {
+    return TextFactory.buildNormalText4(
+      '$duration Days',
       color: ColorsFactory.secondaryText,
     );
   }
