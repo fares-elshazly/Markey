@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '/Screens/Profile/add_package.dart';
+import '/Screens/Tipsters/add_tip.dart';
 import '/Widgets/Shared/back_app_bar.dart';
 import '/Widgets/Shared/avatar.dart';
 import '/Widgets/Profile/portfolio.dart';
@@ -11,7 +13,13 @@ import '/Resources/strings.dart';
 import '/Factories/text_factory.dart';
 import '/Factories/colors_factory.dart';
 import '/Utilities/progress_indicator.dart';
+import '/Utilities/helpers.dart';
+import '/Utilities/snackbars.dart';
+import '/DTOs/Profile/add_previous_work.dart';
+import '/DTOs/Profile/add_certificate.dart';
+import '/Models/Shared/message_exception.dart';
 import '/Controllers/authentication_controller.dart';
+import '/Controllers/profile_controller.dart';
 
 class ProfileScreen extends StatefulWidget {
   static const routeName = '/Profile';
@@ -26,6 +34,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   int _currentTab = 0;
 
   final _authController = Get.find<AuthenticationController>();
+  final _profileController = Get.find<ProfileController>();
   final _profile = Get.find<AuthenticationController>().profile;
 
   final _tabsLength = 4;
@@ -55,6 +64,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       child: Scaffold(
         appBar: const BackAppBar(title: MRKStrings.profileTitle),
         body: Obx(() => _buildBody()),
+        floatingActionButton: _buildFAB(),
       ),
     );
   }
@@ -142,12 +152,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
       case _certificatesTabIndex:
         return Certificates(certificates: _profile.value!.certificates);
       case _packagesTabIndex:
-        return Packages(packages: _profile.value!.packages);
+        return Packages(packages: _profile.value!.packages, isCurrentUser: true);
       case _tipsTabIndex:
-        return const Tips();
+        return Tips(tips: _profile.value!.tips);
       default:
         return const SizedBox();
     }
+  }
+
+  Widget _buildFAB() {
+    return FloatingActionButton(
+      backgroundColor: ColorsFactory.primary,
+      onPressed: _add,
+      child: const Icon(Icons.add),
+    );
   }
 
   Future<void> _loadData() async {
@@ -157,5 +175,67 @@ class _ProfileScreenState extends State<ProfileScreen> {
   void _onTabChange(int index) {
     if (index == _currentTab) return;
     setState(() => _currentTab = index);
+  }
+
+  Future<void> _add() async {
+    switch (_currentTab) {
+      case _portfolioTabIndex:
+        return await _addPreviousWork();
+      case _certificatesTabIndex:
+        return await _addCertificate();
+      case _packagesTabIndex:
+        return _addPackage();
+      case _tipsTabIndex:
+        return _addTip();
+      default:
+    }
+  }
+
+  Future<void> _addPreviousWork() async {
+    ProgressIndicators.loadingDialog();
+    try {
+      final dto = await _generatePreviousWorkDTO();
+      if (dto == null) return Get.back();
+      await _profileController.addPreviousWork(dto);
+      await _authController.getProfile();
+      Get.back();
+    } on MessageException catch (error) {
+      Get.back();
+      Snackbars.danger(error.message);
+    }
+  }
+
+  Future<AddPreviousWorkDTO?> _generatePreviousWorkDTO() async {
+    final image = await Helpers.selectImage();
+    if (image == null) return null;
+    return AddPreviousWorkDTO(image: image.path, userId: _profile.value!.id);
+  }
+
+  Future<void> _addCertificate() async {
+    ProgressIndicators.loadingDialog();
+    try {
+      final dto = await _generateCertificateDTO();
+      if (dto == null) return Get.back();
+      await _profileController.addCertificate(dto);
+      await _authController.getProfile();
+      Get.back();
+    } on MessageException catch (error) {
+      Get.back();
+      Snackbars.danger(error.message);
+    }
+  }
+
+  Future<AddCertificateDTO?> _generateCertificateDTO() async {
+    final image = await Helpers.selectImage();
+    if (image == null) return null;
+    return AddCertificateDTO(image: image.path, userId: _profile.value!.id);
+  }
+
+  void _addPackage() {
+    Get.toNamed(AddPackageScreen.routeName);
+  }
+
+  void _addTip() {
+    Get.toNamed(AddTipScreen.routeName);
   }
 }
