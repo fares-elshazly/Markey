@@ -6,7 +6,7 @@ class Profile {
   final int id;
   final String name;
   final String email;
-  final String avatar;
+  final String? avatar;
   final String gender;
   final String location;
   final String description;
