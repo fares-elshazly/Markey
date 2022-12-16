@@ -74,6 +74,7 @@ class AuthenticationController extends GetxController {
       await _removeUser();
       return isSuccess;
     } catch (error) {
+      await _removeUser();
       rethrow;
     }
   }
