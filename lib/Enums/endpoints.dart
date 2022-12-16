@@ -20,4 +20,12 @@ abstract class Endpoints {
   static const rateTip = 'tips/rate';
   static const spreadTip = 'tips/spread';
   static const reportTip = 'tips/report';
+
+  // * Profile Endpoints
+  static const addPreviousWork = 'previous_work';
+  static const deletePreviousWork = 'previous_work/{id}';
+  static const addCertificate = 'certificates';
+  static const deleteCertificate = 'certificates/{id}';
+  static const addPackage = 'packages';
+  static const deletePackage = 'packages/{id}';
 }
