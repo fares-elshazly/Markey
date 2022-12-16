@@ -4,11 +4,14 @@ import 'package:get/get.dart';
 import '/Widgets/Shared/back_app_bar.dart';
 import '/Widgets/Shared/avatar.dart';
 import '/Widgets/Profile/portfolio.dart';
+import '/Widgets/Profile/certificates.dart';
 import '/Widgets/Profile/packages.dart';
 import '/Widgets/Profile/tips.dart';
 import '/Resources/strings.dart';
 import '/Factories/text_factory.dart';
 import '/Factories/colors_factory.dart';
+import '/Utilities/progress_indicator.dart';
+import '/Controllers/authentication_controller.dart';
 
 class ProfileScreen extends StatefulWidget {
   static const routeName = '/Profile';
@@ -22,19 +25,28 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   int _currentTab = 0;
 
-  final _tabsLength = 3;
+  final _authController = Get.find<AuthenticationController>();
+  final _profile = Get.find<AuthenticationController>().profile;
+
+  final _tabsLength = 4;
 
   static const _portfolioTabIndex = 0;
-  static const _packagesTabIndex = 1;
-  static const _tipsTabIndex = 2;
+  static const _certificatesTabIndex = 1;
+  static const _packagesTabIndex = 2;
+  static const _tipsTabIndex = 3;
 
   final _bodyHorizontalMargin = 15.0;
   final _contentMargin = 15.0;
-  final _internalMargin = 5.0;
 
   final _avatarRadius = 100.0;
 
   final _viewMargin = 20.0;
+
+  @override
+  void initState() {
+    _loadData();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +54,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       length: _tabsLength,
       child: Scaffold(
         appBar: const BackAppBar(title: MRKStrings.profileTitle),
-        body: _buildBody(),
+        body: Obx(() => _buildBody()),
       ),
     );
   }
@@ -51,8 +63,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Container(
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.symmetric(horizontal: _bodyHorizontalMargin),
-      child: _buildContent(),
+      child: _buildLayout(),
     );
+  }
+
+  Widget _buildLayout() {
+    if (_profile.value == null) return _buildLoading();
+    return _buildContent();
+  }
+
+  Widget _buildLoading() {
+    return ProgressIndicators.loadingIndicator();
   }
 
   Widget _buildContent() {
@@ -75,8 +96,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
         _buildAvatar(),
         SizedBox(height: _contentMargin),
         _buildName(),
-        SizedBox(height: _contentMargin),
-        _buildStats(),
       ],
     );
   }
@@ -85,7 +104,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
-        Avatar(radius: _avatarRadius),
+        Avatar(radius: _avatarRadius, url: _profile.value?.avatar),
         const Icon(Icons.qr_code),
       ],
     );
@@ -93,78 +112,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   Widget _buildName() {
     return TextFactory.buildNormalText1(
-      'Jack Sparrow',
+      '${_profile.value?.name}',
       weight: FontWeights.medium,
       color: ColorsFactory.primary,
-    );
-  }
-
-  Widget _buildStats() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        _buildRatingStat(),
-        SizedBox(width: _internalMargin),
-        _buildTipsStat(),
-        SizedBox(width: _internalMargin),
-        _buildVotesStat(),
-      ],
-    );
-  }
-
-  Widget _buildRatingStat() {
-    return _buildStatTile(
-      Icons.star,
-      MRKStrings.profileStatsRate,
-      4.75,
-      ColorsFactory.rate,
-    );
-  }
-
-  Widget _buildTipsStat() {
-    return _buildStatTile(
-      Icons.tips_and_updates,
-      MRKStrings.profileStatsTips,
-      37,
-      ColorsFactory.hyperlink,
-    );
-  }
-
-  Widget _buildVotesStat() {
-    return _buildStatTile(
-      Icons.thumb_up,
-      MRKStrings.profileStatsVotes,
-      735,
-      ColorsFactory.success,
-    );
-  }
-
-  Widget _buildStatTile(IconData icon, String label, num value, Color color) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(icon, color: color),
-        SizedBox(height: _internalMargin),
-        TextFactory.buildNormalText4(label, color: color),
-        SizedBox(height: _internalMargin),
-        TextFactory.buildNormalText4(
-          '$value',
-          weight: FontWeights.medium,
-          color: color,
-        ),
-      ],
     );
   }
 
   Widget _buildTabBar() {
     return TabBar(
       onTap: _onTabChange,
+      isScrollable: true,
       indicatorColor: ColorsFactory.primary,
       labelStyle: TextFactory.buildStyle(),
       labelColor: ColorsFactory.primary,
       unselectedLabelColor: ColorsFactory.secondaryText,
       tabs: [
         Tab(text: MRKStrings.profilePortfolio.tr),
+        Tab(text: MRKStrings.profileCertificates.tr),
         Tab(text: MRKStrings.profilePackages.tr),
         Tab(text: MRKStrings.profileTips.tr),
       ],
@@ -174,14 +138,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget _buildView() {
     switch (_currentTab) {
       case _portfolioTabIndex:
-        return const Portfolio();
+        return Portfolio(previousWorks: _profile.value!.previousWorks);
+      case _certificatesTabIndex:
+        return Certificates(certificates: _profile.value!.certificates);
       case _packagesTabIndex:
-        return const Packages();
+        return Packages(packages: _profile.value!.packages);
       case _tipsTabIndex:
         return const Tips();
       default:
         return const SizedBox();
     }
+  }
+
+  Future<void> _loadData() async {
+    await _authController.getProfile();
   }
 
   void _onTabChange(int index) {
