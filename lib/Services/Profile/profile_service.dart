@@ -31,6 +31,7 @@ abstract class ProfileService extends ChopperService {
   @Delete(path: Endpoints.deletePreviousWork, optionalBody: true)
   Future<Response> deletePreviousWork(@Path() int id);
 
+  @multipart
   @Post(path: Endpoints.addCertificate)
   Future<Response> addCertificate(@PartFile() String image, @Part('user_id') int userId);
 

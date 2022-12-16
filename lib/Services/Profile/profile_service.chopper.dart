@@ -38,7 +38,12 @@ class _$ProfileService extends ProfileService {
   @override
   Future<Response<dynamic>> addCertificate(String image, int userId) {
     final $url = 'certificates';
-    final $request = Request('POST', $url, client.baseUrl);
+    final $parts = <PartValue>[
+      PartValue<int>('user_id', userId),
+      PartValueFile<String>('image', image)
+    ];
+    final $request =
+        Request('POST', $url, client.baseUrl, parts: $parts, multipart: true);
     return client.send<dynamic, dynamic>($request);
   }
 
