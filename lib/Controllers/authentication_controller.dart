@@ -5,7 +5,7 @@ import '/Enums/storage_keys.dart';
 import '/DTOs/Authentication/register.dart';
 import '/DTOs/Authentication/login.dart';
 import '/Models/Authentication/user.dart';
-import '/Models/Authentication/profile.dart';
+import '/Models/Profile/profile.dart';
 import '/Services/Authentication/authentication_repository.dart';
 
 class AuthenticationController extends GetxController {

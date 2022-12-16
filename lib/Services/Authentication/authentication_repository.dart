@@ -4,7 +4,7 @@ import '/Enums/settings.dart';
 import '/DTOs/Authentication/register.dart';
 import '/DTOs/Authentication/login.dart';
 import '/Models/Authentication/user.dart';
-import '/Models/Authentication/profile.dart';
+import '/Models/Profile/profile.dart';
 import '/Models/Shared/message_exception.dart';
 
 class AuthenticationRepository {
