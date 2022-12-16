@@ -17,7 +17,7 @@ class AddPackageDTO {
         'title': title,
         'description': description,
         'cost': cost,
-        'durartion': duration,
+        'duration': duration,
         'user_id': userId,
       };
 }
