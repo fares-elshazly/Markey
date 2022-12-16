@@ -58,7 +58,7 @@ class CachedImage extends StatelessWidget {
     return Container(
       width: width,
       height: height,
-      color: ColorsFactory.field,
+      color: ColorsFactory.secondaryBackground,
       child: const Icon(CupertinoIcons.photo),
     );
   }
