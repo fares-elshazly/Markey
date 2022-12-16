@@ -57,10 +57,8 @@ abstract class MRKStrings {
 
   // * Profile Screen
   static const profileTitle = 'profile.title';
-  static const profileStatsRate = 'profile.stats.rate';
-  static const profileStatsTips = 'profile.stats.tips';
-  static const profileStatsVotes = 'profile.stats.votes';
   static const profilePortfolio = 'profile.portfolio';
+  static const profileCertificates = 'profile.certificates';
   static const profilePackages = 'profile.services';
   static const profileTips = 'profile.tips';
 
