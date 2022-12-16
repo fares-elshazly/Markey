@@ -46,7 +46,7 @@ class HomeScreen extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(height: _bodyVerticalMargin),
-          const Greeting(),
+          Greeting(),
           SizedBox(height: _contentMargin),
           _buildServices(),
           SizedBox(height: _contentMargin),
