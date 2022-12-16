@@ -19,7 +19,7 @@ class Avatar extends StatelessWidget {
   }
 
   Widget _buildImage() {
-    if (url == null) return _buildPlaceholder();
+    if (url == null || url!.isEmpty) return _buildPlaceholder();
     return _buildNetworkImage();
   }
 
