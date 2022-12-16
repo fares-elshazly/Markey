@@ -61,6 +61,13 @@ class MRKTranslations extends Translations {
         MRKStrings.profilePackages: 'Packages',
         MRKStrings.profileTips: 'Tips',
 
+        MRKStrings.addPackageTitle: 'Create Package',
+        MRKStrings.addPackageSubtitle: 'Title',
+        MRKStrings.addPackageDescription: 'Description',
+        MRKStrings.addPackageCost: 'Cost',
+        MRKStrings.addPackageDuration: 'Duration (In Days)',
+        MRKStrings.addPackageSubmit: 'Create',
+
         MRKStrings.chatTitle: 'Chat',
 
         MRKStrings.notificationsTitle: 'Notifications',
