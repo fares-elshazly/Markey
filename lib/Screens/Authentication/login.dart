@@ -181,6 +181,7 @@ class LoginScreen extends StatelessWidget {
     try {
       final dto = _generateDTO();
       await _authController.login(dto);
+      await _authController.getProfile();
       Get.offAllNamed(HomeScreen.routeName);
     } on MessageException catch (error) {
       Get.back();

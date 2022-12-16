@@ -216,6 +216,7 @@ class _RegisterTagsScreenState extends State<RegisterTagsScreen> {
       await _authController.register(_dto);
       final loginDTO = _generateLoginDTO();
       await _authController.login(loginDTO);
+      await _authController.getProfile();
       Get.offAllNamed(HomeScreen.routeName);
     } on MessageException catch (error) {
       Get.back();
