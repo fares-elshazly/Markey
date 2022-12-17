@@ -53,6 +53,7 @@ abstract class MRKStrings {
   static const homeDrawerWallet = 'home.drawer.wallet';
   static const homeDrawerSettings = 'home.drawer.settings';
   static const homeDrawerSupport = 'home.drawer.support';
+  static const homeDrawerExpert = 'home.drawer.expert';
   static const homeDrawerLogout = 'home.drawer.logout';
 
   // * Profile Screen
@@ -69,6 +70,10 @@ abstract class MRKStrings {
   static const addPackageCost = 'add.package.cost';
   static const addPackageDuration = 'add.package.duration';
   static const addPackageSubmit = 'add.package.submit';
+
+  // * Become Expert Screen
+  static const becomeExpertTitle = 'become.expert.title';
+  static const becomeExpertSubmit = 'become.expert.submit';
 
   // * Chat Screen
   static const chatTitle = 'chat.title';
