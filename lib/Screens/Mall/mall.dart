@@ -5,6 +5,8 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import '/Widgets/Shared/back_app_bar.dart';
 import '/Widgets/Mall/expert_card.dart';
 import '/Resources/strings.dart';
+import '/Factories/text_factory.dart';
+import '/Factories/colors_factory.dart';
 import '/Utilities/progress_indicator.dart';
 import '/DTOs/Shared/pagination.dart';
 import '/Controllers/services_controller.dart';
@@ -60,11 +62,23 @@ class _MallScreenState extends State<MallScreen> {
     if (_expertsList.value == null) {
       return _buildLoading();
     }
+    if (_expertsList.value!.experts.isEmpty) {
+      return _buildPlaceholder();
+    }
     return _buildContent();
   }
 
   Widget _buildLoading() {
     return ProgressIndicators.loadingIndicator();
+  }
+
+  Widget _buildPlaceholder() {
+    return Center(
+      child: TextFactory.buildNormalText1(
+        MRKStrings.mallPlaceholder,
+        color: ColorsFactory.primary,
+      ),
+    );
   }
 
   Widget _buildContent() {
