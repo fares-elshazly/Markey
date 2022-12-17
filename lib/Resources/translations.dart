@@ -118,8 +118,7 @@ class MRKTranslations extends Translations {
         MRKStrings.selectServicesSubmit: 'Get Experts',
 
         MRKStrings.mallTitle: 'Mall',
-        MRKStrings.mallServices: 'Services',
-        MRKStrings.mallShops: 'Shops',
+        MRKStrings.mallPlaceholder: 'No Results Found!',
 
         MRKStrings.sharedViewAll: 'View All',
         MRKStrings.sharedSearch: 'Search ..',
