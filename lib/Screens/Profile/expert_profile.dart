@@ -98,6 +98,8 @@ class _ExpertProfileScreenState extends State<ExpertProfileScreen> {
         _buildAvatar(),
         SizedBox(height: _contentMargin),
         _buildName(),
+        SizedBox(height: _contentMargin / 2),
+        _buildUsername(),
       ],
     );
   }
@@ -117,6 +119,13 @@ class _ExpertProfileScreenState extends State<ExpertProfileScreen> {
       '${_profile.value?.name}',
       weight: FontWeights.medium,
       color: ColorsFactory.primary,
+    );
+  }
+
+  Widget _buildUsername() {
+    return TextFactory.buildNormalText2(
+      '@${_profile.value?.username}',
+      color: ColorsFactory.hyperlink,
     );
   }
 
