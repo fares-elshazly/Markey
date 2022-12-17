@@ -79,8 +79,8 @@ class _TipstersScreenState extends State<TipstersScreen> {
   Widget _buildContent() {
     return Column(
       children: [
-        _buildSearch(),
-        SizedBox(height: _contentMargin),
+        // _buildSearch(),
+        // SizedBox(height: _contentMargin),
         _buildTips(),
         _buildIsLoadingMore(),
       ],

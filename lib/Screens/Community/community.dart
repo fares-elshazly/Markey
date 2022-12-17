@@ -80,8 +80,8 @@ class _CommunityScreenState extends State<CommunityScreen> {
   Widget _buildContent() {
     return Column(
       children: [
-        _buildSearch(),
-        SizedBox(height: _contentMargin),
+        // _buildSearch(),
+        // SizedBox(height: _contentMargin),
         _buildBusinesses(),
         _buildIsLoadingMore(),
       ],
