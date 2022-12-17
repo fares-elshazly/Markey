@@ -17,22 +17,22 @@ class HomeDrawer extends StatelessWidget {
   HomeDrawer({Key? key}) : super(key: key);
 
   final _authController = Get.find<AuthenticationController>();
-  final _profile = Get.find<AuthenticationController>().profile.value;
+  final _profile = Get.find<AuthenticationController>().profile;
 
   final _contentMargin = 15.0;
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: _buildBody(),
+      child: Obx(() => _buildBody()),
     );
   }
 
   Widget _buildBody() {
     return Stack(
       children: [
-        _buildContent(),
         const Background(),
+        _buildContent(),
       ],
     );
   }
@@ -70,12 +70,12 @@ class HomeDrawer extends StatelessWidget {
   }
 
   Widget _buildAvatar() {
-    return Avatar(url: _profile?.avatar);
+    return Avatar(url: _profile.value?.avatar);
   }
 
   Widget _buildName() {
     return TextFactory.buildNormalText2(
-      '${_profile?.name}',
+      '${_profile.value?.name}',
       weight: FontWeights.medium,
       color: ColorsFactory.primary,
     );
@@ -122,7 +122,7 @@ class HomeDrawer extends StatelessWidget {
   }
 
   Widget _buildBecomeExpert() {
-    if (_profile!.isExpert) return const SizedBox();
+    if (_profile.value!.isExpert) return const SizedBox();
     return _buildTile(
       Icons.work,
       MRKStrings.homeDrawerExpert,
