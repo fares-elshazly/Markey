@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '/Widgets/Shared/back_app_bar.dart';
 import '/Widgets/Shared/avatar.dart';
+import '/Widgets/Profile/qr_dialog.dart';
 import '/Widgets/Profile/portfolio.dart';
 import '/Widgets/Profile/certificates.dart';
 import '/Widgets/Profile/packages.dart';
@@ -105,12 +106,15 @@ class _ExpertProfileScreenState extends State<ExpertProfileScreen> {
   }
 
   Widget _buildAvatar() {
-    return Stack(
-      alignment: Alignment.bottomCenter,
-      children: [
-        Avatar(radius: _avatarRadius, url: _profile.value?.avatar),
-        const Icon(Icons.qr_code),
-      ],
+    return InkWell(
+      onTap: _showQr,
+      child: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          Avatar(radius: _avatarRadius, url: _profile.value?.avatar),
+          const Icon(Icons.qr_code),
+        ],
+      ),
     );
   }
 
@@ -163,6 +167,10 @@ class _ExpertProfileScreenState extends State<ExpertProfileScreen> {
 
   Future<void> _loadData() async {
     await _profileController.getExpertProfile(widget.expertId);
+  }
+
+  void _showQr() {
+    Get.dialog(QRDialog(id: _profile.value!.id));
   }
 
   void _onTabChange(int index) {
