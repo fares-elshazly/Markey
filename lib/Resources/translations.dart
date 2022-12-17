@@ -53,6 +53,7 @@ class MRKTranslations extends Translations {
         MRKStrings.homeDrawerWallet: 'Wallet',
         MRKStrings.homeDrawerSettings: 'Settings',
         MRKStrings.homeDrawerSupport: 'Support',
+        MRKStrings.homeDrawerExpert: 'Become An Expert',
         MRKStrings.homeDrawerLogout: 'Logout',
 
         MRKStrings.profileTitle: 'Profile',
@@ -67,6 +68,9 @@ class MRKTranslations extends Translations {
         MRKStrings.addPackageCost: 'Cost',
         MRKStrings.addPackageDuration: 'Duration (In Days)',
         MRKStrings.addPackageSubmit: 'Create',
+
+        MRKStrings.becomeExpertTitle: 'Become An Expert',
+        MRKStrings.becomeExpertSubmit: 'Submit',
 
         MRKStrings.chatTitle: 'Chat',
 
