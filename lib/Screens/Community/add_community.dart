@@ -13,6 +13,7 @@ import '/Utilities/snackbars.dart';
 import '/DTOs/Community/add_community.dart';
 import '/Models/Shared/message_exception.dart';
 import '/Controllers/community_controller.dart';
+import '/Controllers/authentication_controller.dart';
 
 class AddCommunityScreen extends StatelessWidget {
   static const routeName = '/AddCommunity';
@@ -20,6 +21,7 @@ class AddCommunityScreen extends StatelessWidget {
   AddCommunityScreen({super.key});
 
   final _communityController = Get.find<CommunityController>();
+  final _profile = Get.find<AuthenticationController>().profile.value;
 
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
@@ -153,6 +155,7 @@ class AddCommunityScreen extends StatelessWidget {
       subtitle: _subtitleController.text,
       description: _descriptionController.text,
       offer: _offerController.text,
+      userId: _profile!.id,
     );
   }
 }
