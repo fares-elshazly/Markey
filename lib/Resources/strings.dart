@@ -130,6 +130,8 @@ abstract class MRKStrings {
   // * Shared
   static const sharedSearch = 'shared.search';
   static const sharedViewAll = 'shared.see.all';
+  static const sharedPrice = 'shared.price';
+  static const sharedDurationInDays = 'shared.duration.in.days';
 
   // * Validation Messages
   static const successTitle = 'success.title';
