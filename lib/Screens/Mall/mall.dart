@@ -3,112 +3,136 @@ import 'package:get/get.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import '/Widgets/Shared/back_app_bar.dart';
-import '/Widgets/Shared/search_field.dart';
-import '/Widgets/Mall/service_card.dart';
-import '/Widgets/Mall/shop_card.dart';
+import '/Widgets/Mall/expert_card.dart';
 import '/Resources/strings.dart';
-import '/Factories/text_factory.dart';
-import '/Factories/colors_factory.dart';
-import '/Utilities/helpers.dart';
+import '/Utilities/progress_indicator.dart';
+import '/DTOs/Shared/pagination.dart';
+import '/Controllers/services_controller.dart';
 
-class MallScreen extends StatelessWidget {
+class MallScreen extends StatefulWidget {
   static const routeName = '/Mall';
 
-  const MallScreen({Key? key}) : super(key: key);
+  const MallScreen({super.key});
 
-  final _tabsLength = 2;
+  @override
+  State<MallScreen> createState() => _MallScreenState();
+}
+
+class _MallScreenState extends State<MallScreen> {
+  int _currentPage = 1;
+  bool _isLoadingMore = false;
+
+  final _dto = Get.arguments;
+
+  final _servicesController = Get.find<ServicesController>();
+  final _expertsList = Get.find<ServicesController>().expertsList;
 
   final _bodyHorizontalMargin = 15.0;
   final _contentMargin = 10.0;
-  final _viewMargin = 20.0;
 
-  final _servicesCrossAxisCount = 2;
-  final _servicesMainAxisSpacing = 20.0;
-  final _servicesCrossAxisSpacing = 10.0;
+  final _expertsCrossAxisCount = 2;
+  final _expertsMainAxisSpacing = 20.0;
+  final _expertsCrossAxisSpacing = 10.0;
+
+  @override
+  void initState() {
+    _loadData();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: _tabsLength,
-      child: Scaffold(
-        appBar: const BackAppBar(title: MRKStrings.mallTitle),
-        body: _buildBody(context),
-      ),
+    return Scaffold(
+      appBar: const BackAppBar(title: MRKStrings.mallTitle),
+      body: _buildBody(),
     );
   }
 
-  Widget _buildBody(BuildContext context) {
-    return GestureDetector(
-      onTap: Helpers.dismissKeyboard,
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.symmetric(horizontal: _bodyHorizontalMargin),
-        child: _buildContent(),
-      ),
+  Widget _buildBody() {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      padding: EdgeInsets.symmetric(horizontal: _bodyHorizontalMargin),
+      child: Obx(() => _buildBodyLayout()),
     );
+  }
+
+  Widget _buildBodyLayout() {
+    if (_expertsList.value == null) {
+      return _buildLoading();
+    }
+    return _buildContent();
+  }
+
+  Widget _buildLoading() {
+    return ProgressIndicators.loadingIndicator();
   }
 
   Widget _buildContent() {
     return Column(
       children: [
-        _buildSearch(),
-        SizedBox(height: _contentMargin),
-        _buildTabBar(),
-        SizedBox(height: _viewMargin),
-        _buildView(),
+        _buildExperts(),
+        _buildIsLoadingMore(),
       ],
     );
   }
 
-  Widget _buildSearch() {
-    return SearchField();
-  }
-
-  Widget _buildTabBar() {
-    return TabBar(
-      indicatorColor: ColorsFactory.primary,
-      labelStyle: TextFactory.buildStyle(),
-      labelColor: ColorsFactory.primary,
-      unselectedLabelColor: ColorsFactory.secondaryText,
-      tabs: [
-        Tab(text: MRKStrings.mallServices.tr),
-        Tab(text: MRKStrings.mallShops.tr),
-      ],
-    );
-  }
-
-  Widget _buildView() {
+  Widget _buildExperts() {
     return Expanded(
-      child: TabBarView(
-        children: [
-          _buildServices(),
-          _buildShops(),
-        ],
+      child: NotificationListener<ScrollNotification>(
+        onNotification: _scrollNotify,
+        child: _buildExpertsList(),
       ),
     );
   }
 
-  Widget _buildServices() {
+  Widget _buildExpertsList() {
     return AlignedGridView.count(
-      itemCount: 20,
-      crossAxisCount: _servicesCrossAxisCount,
-      mainAxisSpacing: _servicesMainAxisSpacing,
-      crossAxisSpacing: _servicesCrossAxisSpacing,
+      itemCount: _expertsList.value?.experts.length,
+      crossAxisCount: _expertsCrossAxisCount,
+      mainAxisSpacing: _expertsMainAxisSpacing,
+      crossAxisSpacing: _expertsCrossAxisSpacing,
       itemBuilder: (BuildContext context, int index) {
-        return ServiceCard(index: index);
+        final expert = _expertsList.value!.experts[index];
+        return ExpertCard(expert: expert);
       },
     );
   }
 
-  Widget _buildShops() {
-    return AlignedGridView.count(
-      itemCount: 20,
-      crossAxisCount: _servicesCrossAxisCount,
-      mainAxisSpacing: _servicesMainAxisSpacing,
-      crossAxisSpacing: _servicesCrossAxisSpacing,
-      itemBuilder: (BuildContext context, int index) {
-        return ShopCard(index: index);
-      },
+  Widget _buildIsLoadingMore() {
+    return Visibility(
+      visible: _isLoadingMore,
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: _contentMargin),
+        child: ProgressIndicators.loadingIndicator(),
+      ),
     );
+  }
+
+  Future<void> _loadData() async {
+    final paginationDto = _generatePaginationDTO();
+    await _servicesController.getExpertsList(_dto, paginationDto);
+  }
+
+  PaginationDTO _generatePaginationDTO() {
+    return PaginationDTO(page: _currentPage);
+  }
+
+  bool _scrollNotify(ScrollNotification scroll) {
+    if (_isLoadingMore) return true;
+    if (_expertsList.value!.pagination.currentPage >=
+        _expertsList.value!.pagination.totalPages) {
+      return true;
+    }
+    if (scroll.metrics.pixels == scroll.metrics.maxScrollExtent) {
+      _loadMore();
+    }
+    return true;
+  }
+
+  Future<void> _loadMore() async {
+    setState(() => _isLoadingMore = true);
+    _currentPage++;
+    await _loadData();
+    setState(() => _isLoadingMore = false);
   }
 }
