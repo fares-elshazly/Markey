@@ -26,7 +26,7 @@ class ServicesRepository {
   }
 
   Future<ExpertsList> experts(GetExpertsDTO expertsDto, PaginationDTO paginationDto) async {
-    final servicesIds = expertsDto.servicesIds;
+    final servicesIds = expertsDto.toQuery();
     final pagination = paginationDto.toJson();
     final response = await _servicesService.experts(servicesIds, pagination: pagination);
     try {
