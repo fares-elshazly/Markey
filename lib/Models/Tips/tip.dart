@@ -1,4 +1,5 @@
 import '/Models/Tags/tag.dart';
+import '/Models/Tips/creator.dart';
 
 List<Tip> tipsFromJson(List json) =>
     List<Tip>.from(json.map((x) => Tip.fromJson(x)));
@@ -10,6 +11,7 @@ class Tip {
   final double rate;
   final int spreadCount;
   final List<Tag> tags;
+  final Creator creator;
 
   Tip({
     required this.id,
@@ -18,6 +20,7 @@ class Tip {
     required this.rate,
     required this.spreadCount,
     required this.tags,
+    required this.creator,
   });
 
   factory Tip.fromJson(Map<String, dynamic> json) => Tip(
@@ -27,5 +30,6 @@ class Tip {
         rate: json["rate"].toDouble(),
         spreadCount: json["spread_count"],
         tags: tagsFromJson(json["tags"]["data"]),
+        creator: Creator.fromJson(json["user"]["data"])
       );
 }
