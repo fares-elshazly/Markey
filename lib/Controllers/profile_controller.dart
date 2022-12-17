@@ -4,13 +4,27 @@ import '/DTOs/Profile/add_previous_work.dart';
 import '/DTOs/Profile/add_certificate.dart';
 import '/DTOs/Profile/add_package.dart';
 import '/DTOs/Profile/become_expert.dart';
+import '/Models/Profile/profile.dart';
 import '/Services/Profile/profile_repository.dart';
 
 class ProfileController extends GetxController {
   late ProfileRepository _repository;
 
+  final Rxn<Profile> _expert = Rxn<Profile>();
+
+  Rxn<Profile> get expert => _expert;
+
   ProfileController() {
     _repository = ProfileRepository();
+  }
+
+  Future<void> getExpertProfile(int id) async {
+    try {
+      final profile = await _repository.expertProfile(id);
+      _expert.value = profile;
+    } catch (error) {
+      rethrow;
+    }
   }
 
   Future<bool> addPreviousWork(AddPreviousWorkDTO dto) async {
