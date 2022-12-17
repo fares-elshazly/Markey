@@ -29,7 +29,7 @@ class TipCard extends StatelessWidget {
   }
 
   Widget _buildAvatar() {
-    return const Avatar();
+    return Avatar(url: tip.creator.avatar);
   }
 
   Widget _buildTitle() {
@@ -49,7 +49,7 @@ class TipCard extends StatelessWidget {
 
   Widget _buildName() {
     return TextFactory.buildNormalText4(
-      '@Username',
+      '@${tip.creator.username}',
       color: ColorsFactory.hyperlink,
     );
   }
