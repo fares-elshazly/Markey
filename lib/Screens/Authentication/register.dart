@@ -19,7 +19,6 @@ class RegisterScreen extends StatelessWidget {
   RegisterScreen({Key? key}) : super(key: key);
 
   final _formKey = GlobalKey<FormState>();
-  final _usernameController = TextEditingController();
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -99,8 +98,6 @@ class RegisterScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        _buildUsernameField(),
-        SizedBox(height: _internalMargin),
         _buildNameField(),
         SizedBox(height: _internalMargin),
         _buildEmailField(),
@@ -113,14 +110,6 @@ class RegisterScreen extends StatelessWidget {
         SizedBox(height: _internalMargin * 2),
         _buildSubmit(),
       ],
-    );
-  }
-
-  Widget _buildUsernameField() {
-    return CustomTextField(
-      hint: MRKStrings.registerUsername,
-      controller: _usernameController,
-      validator: Validator.isNotEmpty,
     );
   }
 
@@ -180,7 +169,6 @@ class RegisterScreen extends StatelessWidget {
 
   RegisterDTO _generateDTO() {
     return RegisterDTO(
-      username: _usernameController.text,
       name: _nameController.text,
       email: _emailController.text,
       password: _passwordController.text,
