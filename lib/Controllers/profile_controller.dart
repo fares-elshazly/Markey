@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '/DTOs/Profile/add_previous_work.dart';
 import '/DTOs/Profile/add_certificate.dart';
 import '/DTOs/Profile/add_package.dart';
+import '/DTOs/Profile/become_expert.dart';
 import '/Services/Profile/profile_repository.dart';
 
 class ProfileController extends GetxController {
@@ -60,6 +61,15 @@ class ProfileController extends GetxController {
   Future<bool> deletePackage(int id) async {
     try {
       final isSuccess = await _repository.deletePackage(id);
+      return isSuccess;
+    } catch (error) {
+      rethrow;
+    }
+  }
+
+  Future<bool> becomeExpert(BecomeExpertDTO dto) async {
+    try {
+      final isSuccess = await _repository.becomeExpert(dto);
       return isSuccess;
     } catch (error) {
       rethrow;
