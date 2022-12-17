@@ -20,6 +20,7 @@ import 'Screens/Tipsters/add_tip.dart';
 import 'Screens/Community/community.dart';
 import 'Screens/Community/add_community.dart';
 
+import 'Screens/Mall/select_services.dart';
 import 'Screens/Mall/mall.dart';
 
 import 'Screens/Notifications/notifications.dart';
@@ -106,6 +107,7 @@ class MyApp extends StatelessWidget {
       GetPage(name: AddCommunityScreen.routeName, page: () => AddCommunityScreen()),
 
       // * Mall Screens
+      GetPage(name: SelectServicesScreen.routeName, page: () => const SelectServicesScreen()),
       GetPage(name: MallScreen.routeName, page: () => const MallScreen()),
 
       // * Profile Screens
