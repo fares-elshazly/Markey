@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import '/Widgets/Home/home_drawer.dart';
 import '/Widgets/Home/greeting.dart';
-import '/Widgets/Home/service_card.dart';
-import '/Widgets/Home/active_project_tile.dart';
 import '/Widgets/Home/home_bottom_bar.dart';
 import '/Resources/strings.dart';
 import '/Factories/text_factory.dart';
@@ -17,10 +15,6 @@ class HomeScreen extends StatelessWidget {
   final _bodyHorizontalMargin = 15.0;
   final _bodyVerticalMargin = 15.0;
   final _contentMargin = 30.0;
-  final _internalMargin = 10.0;
-
-  final _serviceHeight = 200.0;
-  final _servicesMargin = 5.0;
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +42,6 @@ class HomeScreen extends StatelessWidget {
           SizedBox(height: _bodyVerticalMargin),
           Greeting(),
           SizedBox(height: _contentMargin),
-          _buildServices(),
-          SizedBox(height: _contentMargin),
           _buildActiveProjects(),
           SizedBox(height: _bodyVerticalMargin),
         ],
@@ -57,32 +49,10 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildServices() {
-    return SizedBox(
-      height: _serviceHeight,
-      child: ListView.builder(
-        itemCount: 10,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (BuildContext context, int index) {
-          return _buildServiceCard(index);
-        },
-      ),
-    );
-  }
-
-  Widget _buildServiceCard(int index) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: _servicesMargin),
-      child: ServiceCard(index: index),
-    );
-  }
-
   Widget _buildActiveProjects() {
     return Column(
       children: [
         _buildActiveProjectsHeader(),
-        SizedBox(height: _internalMargin),
-        _buildProjects(),
       ],
     );
   }
@@ -110,16 +80,6 @@ class HomeScreen extends StatelessWidget {
         MRKStrings.sharedViewAll,
         color: ColorsFactory.hyperlink,
       ),
-    );
-  }
-
-  Widget _buildProjects() {
-    return ListView.separated(
-      itemCount: 10,
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      itemBuilder: (_, __) => const ActiveProjectTile(),
-      separatorBuilder: (_, __) => const Divider(),
     );
   }
 }
