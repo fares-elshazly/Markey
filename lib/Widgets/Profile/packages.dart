@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '/Resources/strings.dart';
 import '/Factories/text_factory.dart';
 import '/Factories/colors_factory.dart';
-import '/Utilities/progress_indicator.dart';
 import '/Utilities/snackbars.dart';
 import '/Models/Profile/package.dart';
 import '/Models/Shared/message_exception.dart';
@@ -99,6 +99,7 @@ class Packages extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        SizedBox(height: _internalMargin),
         _buildDescription(package.description),
         SizedBox(height: _internalMargin),
         _buildDuration(package.duration),
@@ -115,23 +116,25 @@ class Packages extends StatelessWidget {
 
   Widget _buildDuration(int duration) {
     return TextFactory.buildNormalText4(
-      '$duration Days',
-      color: ColorsFactory.secondaryText,
+      MRKStrings.sharedDurationInDays,
+      color: ColorsFactory.primary,
+      args: ['$duration'],
     );
   }
 
   Widget _buildPrice(double price) {
-    return TextFactory.buildNormalText4('$price £');
+    return TextFactory.buildNormalText4(
+      MRKStrings.sharedPrice,
+      color: ColorsFactory.primary,
+      args: ['$price'],
+    );
   }
 
   Future<void> _delete(int id) async {
-    ProgressIndicators.loadingDialog();
     try {
       await _profileController.deletePackage(id);
       await _authController.getProfile();
-      Get.back();
     } on MessageException catch (error) {
-      Get.back();
       Snackbars.danger(error.message);
     }
   }
