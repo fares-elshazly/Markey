@@ -17,7 +17,17 @@ class Service {
   factory Service.fromJson(Map<String, dynamic> json) => Service(
         id: json["id"],
         name: json["title"],
-        parent: json["parent"],
-        subservices: servicesFromJson(json["childs"]["data"]),
+        parent: _parseParent(json["parent"]?["data"]),
+        subservices: _parseSubservices(json["childs"]?["data"]),
       );
+
+  static Service? _parseParent(Map<String, dynamic>? parent) {
+    if (parent == null) return null;
+    return Service.fromJson(parent);
+  }
+
+  static List<Service>? _parseSubservices(List? data) {
+    if (data == null || data.isEmpty) return null;
+    return servicesFromJson(data);
+  }
 }
