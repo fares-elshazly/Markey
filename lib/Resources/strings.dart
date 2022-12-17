@@ -127,6 +127,10 @@ abstract class MRKStrings {
   static const businessRatingDescription = 'business.rating.description';
   static const businessRatingSubmit = 'business.rating.submit';
 
+  // * Select Services Screen
+  static const selectServicesTitle = 'select.services.title';
+  static const selectServicesSubmit = 'select.services.submit';
+
   // * Mall Screen
   static const mallTitle = 'mall.title';
   static const mallServices = 'mall.services';
