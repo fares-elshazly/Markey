@@ -3,6 +3,7 @@ import 'profile_service.dart';
 import '/DTOs/Profile/add_previous_work.dart';
 import '/DTOs/Profile/add_certificate.dart';
 import '/DTOs/Profile/add_package.dart';
+import '/DTOs/Profile/become_expert.dart';
 import '/Models/Shared/message_exception.dart';
 
 class ProfileRepository {
@@ -45,6 +46,13 @@ class ProfileRepository {
 
   Future<bool> deletePackage(int id) async {
     final response = await _profileService.deletePackage(id);
+    if (response.isSuccessful) return true;
+    throw MessageException(response.error.toString());
+  }
+
+  Future<bool> becomeExpert(BecomeExpertDTO dto) async {
+    final body = dto.toJson();
+    final response = await _profileService.becomeExpert(body);
     if (response.isSuccessful) return true;
     throw MessageException(response.error.toString());
   }
