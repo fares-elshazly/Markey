@@ -116,6 +116,8 @@ class MRKTranslations extends Translations {
 
         MRKStrings.sharedViewAll: 'View All',
         MRKStrings.sharedSearch: 'Search ..',
+        MRKStrings.sharedPrice: '%s £',
+        MRKStrings.sharedDurationInDays: '%s Days',
 
         MRKStrings.successTitle: 'Success!',
         MRKStrings.errorTitle: 'Something went wrong!',
