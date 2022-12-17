@@ -24,6 +24,9 @@ abstract class ProfileService extends ChopperService {
     return _$ProfileService(client);
   }
 
+  @Get(path: Endpoints.expertProfile)
+  Future<Response> expertProfile(@Path() int id);
+
   @multipart
   @Post(path: Endpoints.addPreviousWork)
   Future<Response> addPreviousWork(@PartFile() String image, @Part('user_id') int userId);

@@ -17,6 +17,13 @@ class _$ProfileService extends ProfileService {
   final definitionType = ProfileService;
 
   @override
+  Future<Response<dynamic>> expertProfile(int id) {
+    final $url = 'users/${id}';
+    final $request = Request('GET', $url, client.baseUrl);
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
   Future<Response<dynamic>> addPreviousWork(String image, int userId) {
     final $url = 'previous_work';
     final $parts = <PartValue>[
