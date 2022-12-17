@@ -166,7 +166,6 @@ class _RegisterTagsScreenState extends State<RegisterTagsScreen> {
       child: SubmitButton(
         label: MRKStrings.registerTagsSubmit,
         behaviour: _submit,
-        isEnabled: _selected.isNotEmpty,
       ),
     );
   }
