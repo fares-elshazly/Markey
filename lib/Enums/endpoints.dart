@@ -28,4 +28,8 @@ abstract class Endpoints {
   static const deleteCertificate = 'certificates/{id}';
   static const addPackage = 'packages';
   static const deletePackage = 'packages/{id}';
+
+  // * Services Endpoints
+  static const services = 'services';
+  static const experts = 'services/experts';
 }
