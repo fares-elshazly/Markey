@@ -22,7 +22,7 @@ class Community {
         id: json["id"],
         title: json["title"],
         subtitle: json["sub_title"],
-        rate: json["rate"] ?? 0.0,
+        rate: json["rate"].toDouble(),
         description: json["description"],
         offer: json["offer"],
       );
