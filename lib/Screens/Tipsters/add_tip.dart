@@ -269,6 +269,7 @@ class _AddTipScreenState extends State<AddTipScreen> {
       title: _titleController.text,
       content: _contentController.text,
       tagsIds: _selectedTags.map((tag) => tag.id).toList(),
+      userId: _authController.profile.value!.id,
     );
   }
 }
