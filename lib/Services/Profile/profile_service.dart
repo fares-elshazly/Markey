@@ -43,4 +43,7 @@ abstract class ProfileService extends ChopperService {
 
   @Delete(path: Endpoints.deletePackage, optionalBody: true)
   Future<Response> deletePackage(@Path() int id);
+
+  @Post(path: Endpoints.becomeExpert)
+  Future<Response> becomeExpert(@Body() Map<String, dynamic> body);
 }

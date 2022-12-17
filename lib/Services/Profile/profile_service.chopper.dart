@@ -68,4 +68,12 @@ class _$ProfileService extends ProfileService {
     final $request = Request('DELETE', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
+
+  @override
+  Future<Response<dynamic>> becomeExpert(Map<String, dynamic> body) {
+    final $url = 'users/expert';
+    final $body = body;
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    return client.send<dynamic, dynamic>($request);
+  }
 }
