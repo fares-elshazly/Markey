@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '/Screens/Shared/splash.dart';
 import '/Screens/Profile/profile.dart';
 import '/Screens/Chat/chat.dart';
-import '/Screens/Settings/settings.dart';
+import '/Screens/Profile/become_expert.dart';
 import '/Widgets/Shared/background.dart';
 import '/Widgets/Shared/avatar.dart';
 import '/Resources/strings.dart';
@@ -46,6 +46,7 @@ class HomeDrawer extends StatelessWidget {
         _buildWallet(),
         _buildSettings(),
         _buildSupport(),
+        _buildBecomeExpert(),
         _buildLogout(),
       ],
     );
@@ -108,7 +109,7 @@ class HomeDrawer extends StatelessWidget {
     return _buildTile(
       Icons.settings,
       MRKStrings.homeDrawerSettings,
-      () => Get.toNamed(SettingsScreen.routeName),
+      () {},
     );
   }
 
@@ -117,6 +118,15 @@ class HomeDrawer extends StatelessWidget {
       Icons.support,
       MRKStrings.homeDrawerSupport,
       () {},
+    );
+  }
+
+  Widget _buildBecomeExpert() {
+    if (_profile!.isExpert) return const SizedBox();
+    return _buildTile(
+      Icons.work,
+      MRKStrings.homeDrawerExpert,
+      () => Get.toNamed(BecomeExpertScreen.routeName),
     );
   }
 
