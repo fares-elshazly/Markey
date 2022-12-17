@@ -10,7 +10,7 @@ class Portfolio extends StatelessWidget {
   const Portfolio({required this.previousWorks, Key? key}) : super(key: key);
 
   final _crossAxisCount = 2;
-  final _mainAxisSpacing = 20.0;
+  final _mainAxisSpacing = 10.0;
   final _crossAxisSpacing = 10.0;
 
   final _borderRadius = 8.0;
