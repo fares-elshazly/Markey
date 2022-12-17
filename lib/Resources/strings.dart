@@ -133,8 +133,7 @@ abstract class MRKStrings {
 
   // * Mall Screen
   static const mallTitle = 'mall.title';
-  static const mallServices = 'mall.services';
-  static const mallShops = 'mall.shops';
+  static const mallPlaceholder = 'mall.placeholder';
 
   // * Shared
   static const sharedSearch = 'shared.search';
