@@ -1,5 +1,6 @@
 import 'services_service.dart';
 
+import '/Enums/settings.dart';
 import '/DTOs/Shared/pagination.dart';
 import '/DTOs/Services/get_experts.dart';
 import '/Models/Services/service.dart';
@@ -17,7 +18,7 @@ class ServicesRepository {
     final pagination = dto.toJson();
     final response = await _servicesService.services(pagination: pagination);
     try {
-      final services = servicesFromJson(response.body);
+      final services = servicesFromJson(response.body[Settings.dataKey]);
       return services;
     } catch (error) {
       throw MessageException(response.error.toString());
