@@ -4,6 +4,7 @@ import '/Widgets/Shared/back_app_bar.dart';
 import '/Widgets/Shared/search_field.dart';
 import '/Widgets/Chat/conversation_tile.dart';
 import '/Resources/strings.dart';
+import '/Factories/colors_factory.dart';
 import '/Utilities/helpers.dart';
 
 class ChatScreen extends StatelessWidget {
@@ -18,7 +19,10 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const BackAppBar(title: MRKStrings.chatTitle),
+      appBar: const BackAppBar(
+        title: MRKStrings.chatTitle,
+        backgroundColor: ColorsFactory.background,
+      ),
       body: _buildBody(context),
     );
   }
