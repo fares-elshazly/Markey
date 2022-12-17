@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '/Widgets/Shared/avatar.dart';
 import '/Widgets/Shared/submit_button.dart';
 import '/Widgets/Community/business_rate.dart';
 import '/Resources/strings.dart';
@@ -92,7 +91,6 @@ class BusinessCard extends StatelessWidget {
       contentPadding: EdgeInsets.zero,
       title: _buildName(),
       subtitle: _buildInfoDetails(),
-      trailing: _buildImage(),
     );
   }
 
@@ -128,10 +126,6 @@ class BusinessCard extends StatelessWidget {
         TextFactory.buildNormalText4('${community.rate}'),
       ],
     );
-  }
-
-  Widget _buildImage() {
-    return const Avatar();
   }
 
   Widget _buildAbout() {
