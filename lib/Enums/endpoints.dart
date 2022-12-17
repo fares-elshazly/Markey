@@ -22,6 +22,7 @@ abstract class Endpoints {
   static const reportTip = 'tips/report';
 
   // * Profile Endpoints
+  static const expertProfile = 'users/{id}';
   static const addPreviousWork = 'previous_work';
   static const deletePreviousWork = 'previous_work/{id}';
   static const addCertificate = 'certificates';
