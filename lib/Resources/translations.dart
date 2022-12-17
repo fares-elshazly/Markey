@@ -114,6 +114,9 @@ class MRKTranslations extends Translations {
         MRKStrings.businessRatingDescription: 'Tap a star to set your rating',
         MRKStrings.businessRatingSubmit: 'Submit Your Review',
 
+        MRKStrings.selectServicesTitle: 'Select Services',
+        MRKStrings.selectServicesSubmit: 'Get Experts',
+
         MRKStrings.mallTitle: 'Mall',
         MRKStrings.mallServices: 'Services',
         MRKStrings.mallShops: 'Shops',
