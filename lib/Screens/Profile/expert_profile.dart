@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '/Screens/Profile/hire_expert.dart';
 import '/Widgets/Shared/back_app_bar.dart';
 import '/Widgets/Shared/avatar.dart';
 import '/Widgets/Profile/qr_dialog.dart';
@@ -8,6 +9,7 @@ import '/Widgets/Profile/portfolio.dart';
 import '/Widgets/Profile/certificates.dart';
 import '/Widgets/Profile/packages.dart';
 import '/Widgets/Profile/tips.dart';
+import '/Widgets/Shared/submit_button.dart';
 import '/Resources/strings.dart';
 import '/Factories/text_factory.dart';
 import '/Factories/colors_factory.dart';
@@ -40,6 +42,7 @@ class _ExpertProfileScreenState extends State<ExpertProfileScreen> {
 
   final _bodyHorizontalMargin = 15.0;
   final _contentMargin = 15.0;
+  final _bottomBarPadding = 15.0;
 
   final _avatarRadius = 100.0;
 
@@ -58,6 +61,7 @@ class _ExpertProfileScreenState extends State<ExpertProfileScreen> {
       child: Scaffold(
         appBar: const BackAppBar(title: MRKStrings.profileTitle),
         body: Obx(() => _buildBody()),
+        bottomNavigationBar: _buildBottomBar(),
       ),
     );
   }
@@ -157,12 +161,29 @@ class _ExpertProfileScreenState extends State<ExpertProfileScreen> {
       case _certificatesTabIndex:
         return Certificates(certificates: _profile.value!.certificates);
       case _packagesTabIndex:
-        return Packages(packages: _profile.value!.packages, isCurrentUser: true);
+        return Packages(
+            packages: _profile.value!.packages, isCurrentUser: true);
       case _tipsTabIndex:
         return Tips(tips: _profile.value!.tips);
       default:
         return const SizedBox();
     }
+  }
+
+  Widget _buildBottomBar() {
+    return SafeArea(
+      child: Padding(
+        padding: EdgeInsets.all(_bottomBarPadding),
+        child: _buildHire(),
+      ),
+    );
+  }
+
+  Widget _buildHire() {
+    return SubmitButton(
+      label: MRKStrings.profileHire,
+      behaviour: _hire,
+    );
   }
 
   Future<void> _loadData() async {
@@ -176,5 +197,9 @@ class _ExpertProfileScreenState extends State<ExpertProfileScreen> {
   void _onTabChange(int index) {
     if (index == _currentTab) return;
     setState(() => _currentTab = index);
+  }
+
+  void _hire() {
+    Get.toNamed(HireExpertScreen.routeName);
   }
 }
