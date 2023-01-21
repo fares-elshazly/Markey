@@ -61,6 +61,15 @@ class MRKTranslations extends Translations {
         MRKStrings.profileCertificates: 'Certificates',
         MRKStrings.profilePackages: 'Packages',
         MRKStrings.profileTips: 'Tips',
+        MRKStrings.profileHire: 'Hire',
+
+        MRKStrings.hireTitle: 'Select Your Preferred Package',
+        MRKStrings.hireSubmit: 'Submit',
+
+        MRKStrings.paymentTitle: 'Online Payment',
+
+        MRKStrings.paymentConfirmationSuccess: 'Congratulations, You\'ve Successfully Hired An Expert!',
+        MRKStrings.paymentConfirmationFail: 'We\'re Sorry We Couldn\'t Complete The Payment!',
 
         MRKStrings.addPackageTitle: 'Create Package',
         MRKStrings.addPackageSubtitle: 'Title',
