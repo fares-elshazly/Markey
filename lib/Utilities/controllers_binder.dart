@@ -6,6 +6,7 @@ import '/Controllers/community_controller.dart';
 import '/Controllers/tips_controller.dart';
 import '/Controllers/profile_controller.dart';
 import '/Controllers/services_controller.dart';
+import '/Controllers/bookings_controller.dart';
 
 class ControllersBinder implements Bindings {
   @override
@@ -16,5 +17,6 @@ class ControllersBinder implements Bindings {
     Get.put(TipsController());
     Get.put(ProfileController());
     Get.put(ServicesController());
+    Get.put(BookingsController());
   }
 }
