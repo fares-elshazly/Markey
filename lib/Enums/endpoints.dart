@@ -34,4 +34,7 @@ abstract class Endpoints {
   // * Services Endpoints
   static const services = 'services';
   static const experts = 'services/experts';
+
+  // * Bookings Endpoints
+  static const book = 'payments';
 }
