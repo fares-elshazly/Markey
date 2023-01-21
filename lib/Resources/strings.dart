@@ -62,6 +62,18 @@ abstract class MRKStrings {
   static const profileCertificates = 'profile.certificates';
   static const profilePackages = 'profile.services';
   static const profileTips = 'profile.tips';
+  static const profileHire = 'profile.hire';
+
+  // * Hire Expert Screen
+  static const hireTitle = 'hire.title';
+  static const hireSubmit = 'hire.submit';
+
+  // * Payment Screen
+  static const paymentTitle = 'payment.title';
+
+  // * Payment Confirmation Dialog
+  static const paymentConfirmationSuccess = 'payment.confirmation.success';
+  static const paymentConfirmationFail = 'payment.confirmation.fail';
 
   // * Add Package Screen
   static const addPackageTitle = 'add.package.title';
